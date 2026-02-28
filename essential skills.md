@@ -65,7 +65,7 @@ in browser: delete cookies except for path / and paste admin (>admin panel>delet
 
 <br><br>
 
-chatgpt notes:
+chatgpt notes: <br>
 <img width="768" height="485" alt="image" src="https://github.com/user-attachments/assets/8ab0cc1a-39b6-49c9-a4eb-ef97cb5f4f58" />
 
 <img width="746" height="246" alt="image" src="https://github.com/user-attachments/assets/f8bada05-30b3-47b6-a537-f76c96c5b183" />
