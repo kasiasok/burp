@@ -72,7 +72,7 @@ chatgpt notes:
 
 <img width="845" height="679" alt="image" src="https://github.com/user-attachments/assets/2abbda98-492a-44d1-84fb-118f58e95531" />
 
-🧠 Pentesterski insight
+```🧠 Pentesterski insight
 
 99% XSS exfil payloadów w realnych exploitach używa:
 
