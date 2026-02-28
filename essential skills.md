@@ -72,7 +72,25 @@ chatgpt notes: <br>
 
 <img width="845" height="679" alt="image" src="https://github.com/user-attachments/assets/2abbda98-492a-44d1-84fb-118f58e95531" />
 
-```🧠 Pentesterski insight
+```
+📊 Realny flow decyzyjny pentestera
+czy svg działa?
+ ├─ tak → svg payload
+ └─ nie
+      ↓
+czy eventy działają?
+ ├─ tak → img/onerror
+ └─ nie
+      ↓
+czy external resource dozwolony?
+ ├─ tak → script src
+ └─ nie
+      ↓
+CSP bypass research
+
+
+
+🧠 Pentesterski insight
 
 99% XSS exfil payloadów w realnych exploitach używa:
 
