@@ -116,84 +116,93 @@ ad4.<br>
 <br><br>
 Lab: Web cache poisoning with an unkeyed cookie <br>
  <br>
-1. Check / request <br>
- <br> <br>
- 
+1.Check / request 
+Cache-Control: max-age=30 - może być cache’owana przez 30 sekund,
+Age: 1 - aktualnie ma 1 sekundę, 
+X-Cache: hit – jest w cache
 
-Cache-Control: max-age=30 - może być cache’owana przez 30 sekund, <br>
- <br>
-Age: 1 - aktualnie ma 1 sekundę, <br>
- <br>
-X-Cache: hit – jest w cache <br>
+<br>
 
-  <br> <br>
-
-2. Cache- buster GET <br>
- <br>
-/?cb=kasia123 hit hit <br>
- <br>
-/?cb=kasia1234 hit hit <br>
+2. Cache- buster GET 
+/?cb=kasia123 hit hit
+/?cb=kasia1234 hit hit 
 
   <br>
 
-Miss-hit pojawia się tylko po alteracji GET, <br>
-po zmianie ciasteczka feshost, zawsze jest hithit <br>
+Miss-hit pojawia się tylko po alteracji GET, 
+po zmianie ciasteczka feshost, zawsze jest hithit
 
-It means, this is query string is a part of cache key <br>
+It means, this is query string is a part of cache key 
 
-Use this as a part of CB, not to not impack other users visiting / page that we are probing, and to test fresh uncached requests <br> <br>
+Use this as a part of CB, not to not impack other users visiting / page that we are probing, and to test fresh uncached requests 
 
-3.fing unkeyed input: long story short: param>guess cookie z cache buster w GET > MI SKAN NIE DZIAŁA <br>
- <br>
-Cookie: session=9gmLxSJpmBeVw8WVG6uWluicMVmP4Cga; fehost=prod-cache-01 <br>
-prod-cache-01 jest odbite już w odpowiedzi, wiec jest to ważne zrodlo umieszczenia js <br>
- <br>
-Req fehost: <br>
-fehost=prod-cache-03 <br>
- <br>
-Res:
-     ```  <script>
+<br>
+
+3.fing unkeyed input: long story short: param>guess cookie z cache buster w GET > MI SKAN NIE DZIAŁA
+Cookie: session=9gmLxSJpmBeVw8WVG6uWluicMVmP4Cga; fehost=prod-cache-01 
+prod-cache-01 jest odbite już w odpowiedzi, wiec jest to ważne zrodlo umieszczenia js
+
+Req fehost:
+fehost=prod-cache-03 
+Res:```
+    <script>
 
             data = {"host":"0a0a007c030ae19c80036c210097001a.web-security-academy.net","path":"/","frontend":"prod-cache-03"}
 
         </script>```
- <br> <br>
-4. fehost robimy pusty <br>
-REQ fehost= <br>
-RESP "frontend":"" <br>
- <br> <br>
-5. w przeglądarce szukamy <br>
-data = {"frontend":"" - alert() -""} <br>
- <br> <br>
-Żeby to policzyć: "foo" - alert() - 3 <br>
-JS musi: <br>
- <br> <br>
-Obliczyć "foo" <br>
-Obliczyć alert() <br>
-Dopiero potem wykonać odejmowanie <br>
-6. REQ fehost="-alert(1)-" to hit <br>
- <br> <br>
-7. Remove  /?cd=kasia4 <br>
+ 
  <br>
-Czyli zatruwamy cache GET / <br> 
-hit <br>
- <br> <br>
-8. wchodzimy w home w przeglądarce <br>
+ 
+4. fehost robimy pusty 
+REQ fehost= 
+RESP "frontend":""
+
+ <br> 
+ 
+6. w przeglądarce szukamy
+data = {"frontend":"" - alert() -""}
+ <br> 
+Żeby to policzyć: "foo" - alert() - 3
+JS musi: 
+Obliczyć "foo" 
+Obliczyć alert() 
+Dopiero potem wykonać odejmowanie
+
+<br>
+
+8. REQ fehost="-alert(1)-" to hit 
+ 
+ <br>
+
+9. Remove  /?cd=kasia4
+
+ <br>
+ 
+Czyli zatruwamy cache GET / 
+hit 
+
+10. wchodzimy w home w przeglądarce <br>
  <br>
   <br>
   <hr>
-   <br> <br>
+   <br> 
 
 Lab: Web cache poisoning with multiple headers <br>
  <br>
-1.test cache miss hit <br>
-2.add CacheBuster in GET (not impact users using homepage) <br>
-3. Miss > Skan param miner > guess header : x-forwarded-scheme: <br>
- <br>
-Scheme to start url i mowi, czy to będzie http czy ftp czy https <br>
- <br>
-x-forwarded-scheme: nohttps <br>
- <br>
-tip: żeby testować czy xfs się cachuje, musimy alterowac GET (xfs jest unkeyed) <br>
- <br>
-4.Second skan: x-forwarded-scheme: nohttps> Miss>Skan param miner > guess header : x-forwarded-scheme: <br>
+1.test cache miss hit 
+
+<br>
+
+2.add CacheBuster in GET (not impact users using homepage) 
+
+<br>
+
+3. Miss > Skan param miner > guess header : x-forwarded-scheme: 
+Scheme to start url i mowi, czy to będzie http czy ftp czy https
+x-forwarded-scheme: nohttps
+
+tip: żeby testować czy xfs się cachuje, musimy alterowac GET (xfs jest unkeyed) 
+
+<br>
+
+4.Second skan: x-forwarded-scheme: nohttps> Miss>Skan param miner > guess header : x-forwarded-scheme: 
