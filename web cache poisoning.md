@@ -60,8 +60,8 @@ param min> guest headers
 3.wynik w target > sitemap> issues 
 
 x-forwarded-host header is an unkeyed header 
- <br>
 
+ <br>
 
 4./?cb=kasia123 
 X-Forwarded-Host: wartość URL exploit serwera 
@@ -93,7 +93,7 @@ Store <br>
  <br>
   <br>
 
-8. w przeglądarce doklejamy do strony głównej <br>
+8.w przeglądarce doklejamy do strony głównej <br>
  <br>
 /?cb=kasia123 <br>
  <br>
@@ -101,7 +101,7 @@ i mamy popup <br>
  <br>
   <br>
 
-9. dystrybuujemy atak do strony głównej <br>
+9.dystrybuujemy atak do strony głównej <br>
  <br>
 W request zostawiamy / i wysyłamy dwa razy <br>
 (kasuejmy /?cb=kasia123) <br>
