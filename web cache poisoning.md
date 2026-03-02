@@ -44,18 +44,16 @@ Unkeyed input to dane, które wpływają na odpowiedź serwera, ale nie są bran
   <br>
 
 1.original request 2x 
-
 Miss (response nie znajduje w cache) 
-
 Hit (response już jest w cache) 
+
  <br>
  
-
 2./?cb=kasia123  
 Cache: Miss 
 param min> guest headers 
- <br>
 
+ <br>
 
 3.wynik w target > sitemap> issues 
 
@@ -73,40 +71,41 @@ Bo Nagłówek X-Forwarded-Host jest używany głównie przez: reverse proxy, loa
 
   <br>
 
-5.exploi server odbity w body. Kopiujemy zasob, który jest dalej. <br>
+5.exploi server odbity w body. Kopiujemy zasob, który jest dalej.
 
-Jest uzyty przez .js tracking file <br>
+Jest uzyty przez .js tracking file
 
-/resources/js/tracking.js <br>
- <br>
+/resources/js/tracking.js 
+
   <br>
 
 6.Wklejamy w exploit server, <br>
 
-file: /resources/js/tracking.js <br>
-body: alert(document.cookie); <br>
+file: /resources/js/tracking.js 
+body: alert(document.cookie); 
  <br>
-Store <br>
+Store 
+ 
  <br>
- <br>
-7.wysalc jeszcze to samo żądanie, aż będzie cache hit. <br>
- <br>
+ 
+7.wysalc jeszcze to samo żądanie, aż będzie cache hit. 
+
   <br>
 
-8.w przeglądarce doklejamy do strony głównej <br>
- <br>
-/?cb=kasia123 <br>
- <br>
-i mamy popup <br>
- <br>
+8.w przeglądarce doklejamy do strony głównej 
+
+/?cb=kasia123
+
+i mamy popup 
+
   <br>
 
-9.dystrybuujemy atak do strony głównej <br>
+9.dystrybuujemy atak do strony głównej 
+W request zostawiamy / i wysyłamy dwa razy 
+(kasuejmy /?cb=kasia123) 
+ 
  <br>
-W request zostawiamy / i wysyłamy dwa razy <br>
-(kasuejmy /?cb=kasia123) <br>
- <br> <br>
-
+ 
  ad3.<br>
  <img width="1003" height="625" alt="image" src="https://github.com/user-attachments/assets/92dc8e00-ad0f-4c37-9dbc-beefc3cf928e" />
 <br><br>
