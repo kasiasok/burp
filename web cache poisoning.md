@@ -51,19 +51,19 @@ Hit (response już jest w cache)
  <br>
  
 
-2. /?cb=kasia123  
+2./?cb=kasia123  
 Cache: Miss 
 param min> guest headers 
  <br>
 
 
-3. wynik w target > sitemap> issues 
+3.wynik w target > sitemap> issues 
 
 x-forwarded-host header is an unkeyed header 
  <br>
 
 
-4.  /?cb=kasia123 
+4./?cb=kasia123 
 X-Forwarded-Host: wartość URL exploit serwera 
 
 
@@ -73,7 +73,7 @@ Bo Nagłówek X-Forwarded-Host jest używany głównie przez: reverse proxy, loa
 
   <br>
 
-5. exploi server odbity w body. Kopiujemy zasob, który jest dalej. <br>
+5.exploi server odbity w body. Kopiujemy zasob, który jest dalej. <br>
 
 Jest uzyty przez .js tracking file <br>
 
@@ -81,7 +81,7 @@ Jest uzyty przez .js tracking file <br>
  <br>
   <br>
 
-6. Wklejamy w exploit server, <br>
+6.Wklejamy w exploit server, <br>
 
 file: /resources/js/tracking.js <br>
 body: alert(document.cookie); <br>
