@@ -135,8 +135,12 @@ Jego przeglądarka ładuje złośliwy skrypt z serwera atakującego, a ten skryp
 <br><br>
 <hr>
 <br><br>
-<h2>Lab: Web cache poisoning with an unkeyed cookie <h2>
+<h2>Lab: Web cache poisoning with an unkeyed cookie </h2>
+ 
  <br>
+
+Cookies aren't included in the cache key! Mogę je zmieniać i cały czas jest hit. 
+ 
 1.Check / request 
 Cache-Control: max-age=30 - może być cache’owana przez 30 sekund,
 Age: 1 - aktualnie ma 1 sekundę, 
@@ -144,17 +148,16 @@ X-Cache: hit – jest w cache
 
 <br>
 
-2. Cache- buster GET 
-/?cb=kasia123 hit hit
-/?cb=kasia1234 hit hit 
+2. Cache- buster GET     > part of cache key
+/?cb=kasia123 miss hit
+
 
   <br>
 
 Miss-hit pojawia się tylko po alteracji GET, 
 po zmianie ciasteczka feshost, zawsze jest hithit
 
-It means, this is query string is a part of cache key 
-
+It means, this is GET query string is a part of cache key 
 Use this as a part of CB, not to not impack other users visiting / page that we are probing, and to test fresh uncached requests 
 
 <br>
@@ -163,9 +166,12 @@ Use this as a part of CB, not to not impack other users visiting / page that we 
 Cookie: session=9gmLxSJpmBeVw8WVG6uWluicMVmP4Cga; fehost=prod-cache-01 
 prod-cache-01 jest odbite już w odpowiedzi, wiec jest to ważne zrodlo umieszczenia js
 
-Req fehost:
-fehost=prod-cache-03 
-Res:```
+REQ
+fehost:
+fehost=prod-cache-03
+
+RES:
+```
     <script>
 
             data = {"host":"0a0a007c030ae19c80036c210097001a.web-security-academy.net","path":"/","frontend":"prod-cache-03"}
@@ -175,40 +181,38 @@ Res:```
  <br>
  
 4. fehost robimy pusty 
-REQ fehost= 
-RESP "frontend":""
+REQ 
+fehost= 
+
+RESP 
+"frontend":""
 
  <br> 
  
-6. w przeglądarce szukamy
-data = {"frontend":"" - alert() -""}
- <br> 
-Żeby to policzyć: "foo" - alert() - 3
-JS musi: 
-Obliczyć "foo" 
-Obliczyć alert() 
-Dopiero potem wykonać odejmowanie
 
 <br>
+```
+fehost
+"-alert(1)-"
 
-8. REQ fehost="-alert(1)-" to hit 
- 
- <br>
 
-9. Remove  /?cd=kasia4
+<script> data = {"host":"0ac5004b043c07b180c23a8a007d00de.web-security-academy.net","path":"/","frontend":""-alert(1)-""} </script>
+``` 
 
- <br>
- 
-Czyli zatruwamy cache GET / 
-hit 
 
-10. wchodzimy w home w przeglądarce <br>
- <br>
+<img width="1128" height="552" alt="image" src="https://github.com/user-attachments/assets/3bf7006e-b706-4bb9-8c83-a7f30a53b3a0" />
+
+<img width="1204" height="522" alt="image" src="https://github.com/user-attachments/assets/8e9f2cb0-2f5e-4182-9910-a49e878a9402" />
+
+<img width="1235" height="537" alt="image" src="https://github.com/user-attachments/assets/1fcd3e39-90a7-4a2b-bd1b-93f7b424b2c9" />
+
+  
+  
   <br>
   <hr>
    <br> 
 
-<h2>Lab: Web cache poisoning with multiple headers <br><h2>
+<h2>Lab: Web cache poisoning with multiple headers </h2>
  <br>
 1.test cache miss hit 
 
