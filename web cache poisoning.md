@@ -75,6 +75,7 @@ X-Forwarded-Host: wartość URL exploit serwera
 Bo Nagłówek X-Forwarded-Host jest używany głównie przez: reverse proxy, load balancer, CDN 
 
 X-Forwarded-Host wskazuje oryginalny host (domenę), którego użył klient, zanim request przeszedł przez proxy / load balancer / CDN.
+ 
   <br>
 
 5.Aplikacja używa wartości xfh do zbudowania adresu w script src.
