@@ -388,8 +388,28 @@ nie cachuje się query string, miss pojawia się dopiero przy age: 35 (czyli po 
 <br><br>
 <h2>Lab: Web cache poisoning via an unkeyed query parameter</h2>
 
- This lab is vulnerable to web cache poisoning because it excludes a certain parameter from the cache key. A user regularly visits this site's home page using Chrome.
+This lab is vulnerable to web cache poisoning because it excludes a certain parameter from the cache key. A user regularly visits this site's home page using Chrome.
 To solve the lab, poison the cache with a response that executes alert(1) in the victim's browser.
 Hint: Websites often exclude certain UTM analytics parameters from the cache key.
 
+guess everything!
 
+<img width="854" height="398" alt="image" src="https://github.com/user-attachments/assets/f27d6aa0-d220-4e98-81e5-1d17aee1dd68" />
+
+<img width="968" height="582" alt="image" src="https://github.com/user-attachments/assets/b601b4e6-1d6c-4dfb-812b-85be695e865e" />
+
+UTM to parametry w URL do analityki marketingowej — nie mają wpływu na działanie strony, tylko na śledzenie ruchu.
+utm_source - źródło ruchu (np. facebook, google)
+utm_medium - typ kanału marketingowego (np. cpc, email)
+utm_campaign - nazwa kampanii marketingowej
+utm_term - słowo kluczowe reklamy
+utm_content - wersja lub wariant reklamy
+
+<img width="1215" height="516" alt="image" src="https://github.com/user-attachments/assets/4541392e-1cd3-499b-b52f-f49befced363" />
+
+browser: zasób /
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Parameter cloaking</h2>
