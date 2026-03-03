@@ -77,7 +77,9 @@ Bo Nagłówek X-Forwarded-Host jest używany głównie przez: reverse proxy, loa
 X-Forwarded-Host wskazuje oryginalny host (domenę), którego użył klient, zanim request przeszedł przez proxy / load balancer / CDN.
   <br>
 
-5.exploi server odbity w body. Kopiujemy zasob, który jest dalej.
+5.Aplikacja używa wartości xfh do zbudowania adresu w script src.
+exploi server odbity w body. Kopiujemy zasob, który jest dalej.
+
 
 Jest uzyty przez .js tracking file
 
