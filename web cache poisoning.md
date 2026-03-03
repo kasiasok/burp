@@ -213,16 +213,19 @@ fehost
 <h2>Lab: Web cache poisoning with multiple headers </h2>
  <br>
 notes:
+
 X-Forwarded-Scheme is an HTTP request header used to identify the original protocol (HTTP or HTTPS) a client used to connect to a proxy or load balancer.
 
+<br>
+
 Long story short:
-Aplikacvja ma dwa ukryte nagłówki. Drugi wyszukujemy dopiero jak wprowadzimy do żądania pierwszy wykryty.
+
+Aplikacja ma dwa ukryte nagłówki. Drugi wyszukujemy dopiero jak wprowadzimy do żądania pierwszy wykryty.
 Nagłówek X-Forwarded-Scheme jeśli ma wartość inną niż https, powoduje redirect do tracking cooki, zaciągając do Location host z X-Forwarded-Host.
 Będąc w GET /resources wprowadzamy X-Forwarded-Scheme:http i X-Forwarded-Host: exploit server.
 W explot server poprawnie uzupełniamy file i body. Store.
 Cachujemy ww. GET póki nie będzie hit.
 Odświeżamy stronę główną. Vuala.
-
 
 test cache miss hit 
 
