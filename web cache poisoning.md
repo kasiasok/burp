@@ -125,6 +125,13 @@ W request zostawiamy / i wysyłamy dwa razy
 <br><br>
 ad4.<br>
 <img width="1197" height="642" alt="image" src="https://github.com/user-attachments/assets/844f7bf4-b491-479c-94a2-410c23aea46b" />
+
+Atakujący wysyła do serwera żądanie z nagłówkiem X-Forwarded-Host, ustawionym na swoją złośliwą domenę.
+Serwer ufa temu nagłówkowi i generuje stronę HTML, w której umieszcza link do skryptu z tej złośliwej domeny.
+Cache zapisuje tę wygenerowaną stronę jako normalną wersję strony głównej, ponieważ nie bierze pod uwagę nagłówka X-Forwarded-Host przy tworzeniu klucza cache.
+Gdy zwykły użytkownik wejdzie na stronę główną, dostaje z cache zatrutą wersję HTML.
+Jego przeglądarka ładuje złośliwy skrypt z serwera atakującego, a ten skrypt wykonuje się w kontekście strony i może odczytać document.cookie.
+
 <br><br>
 <hr>
 <br><br>
