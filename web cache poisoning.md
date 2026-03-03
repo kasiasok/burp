@@ -212,6 +212,9 @@ fehost
 
 <h2>Lab: Web cache poisoning with multiple headers </h2>
  <br>
+notes:
+X-Forwarded-Scheme is an HTTP request header used to identify the original protocol (HTTP or HTTPS) a client used to connect to a proxy or load balancer.
+
 1.test cache miss hit 
 
 <br>
@@ -248,6 +251,22 @@ browsre lab/?cb=6
 6. GET change to /resources path
 
 <hr>
+<img width="1201" height="484" alt="image" src="https://github.com/user-attachments/assets/93669f29-caed-4193-868a-fd56bd9295ea" />
+
+<img width="1196" height="341" alt="image" src="https://github.com/user-attachments/assets/9e45d7bb-906f-4d90-bbf7-1e3bb6e2b54f" />
+
+<img width="989" height="667" alt="image" src="https://github.com/user-attachments/assets/5665f3d9-7f5c-483c-882b-9d2e6f1c3540" />
+
+<img width="1166" height="605" alt="image" src="https://github.com/user-attachments/assets/33589442-b29a-4c07-be24-e3a8c3eaa86c" />
+
+<img width="1118" height="599" alt="image" src="https://github.com/user-attachments/assets/d92d2aa7-3c76-4b0f-b454-7dbc11ad35fc" />
+
+<img width="1112" height="547" alt="image" src="https://github.com/user-attachments/assets/d2bc9d60-aa35-4c17-a71b-4a83f7091bc4" />
+
+<img width="986" height="518" alt="image" src="https://github.com/user-attachments/assets/2a005ad4-65e7-46c7-b9f1-5e93d142b414" />
+
+
+
 
 
 <h2>Lab: Targeted web cache poisoning using an unknown header<h2>
