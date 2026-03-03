@@ -300,7 +300,7 @@ GET change to /resources path
 <h2>Lab: Targeted web cache poisoning using an unknown header</h2>
 
 You need to poison the cache with a response that executes alert(document.cookie) in the visitor's browser. 
-Target users: Należy jednak upewnić się, że odpowiedź zostanie wysłana do konkretnej grupy użytkowników, do której należy dana ofiara.
+Target users: Należy jednak upewnić się, że odpowiedź zostanie wysłana do konkretnej grupy użytkowników, do której należy dana ofiara. (via USER AGENT)
 
 GET /cb=1
 resp: miss
