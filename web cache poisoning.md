@@ -74,6 +74,7 @@ X-Forwarded-Host: wartość URL exploit serwera
 
 Bo Nagłówek X-Forwarded-Host jest używany głównie przez: reverse proxy, load balancer, CDN 
 
+X-Forwarded-Host wskazuje oryginalny host (domenę), którego użył klient, zanim request przeszedł przez proxy / load balancer / CDN.
   <br>
 
 5.exploi server odbity w body. Kopiujemy zasob, który jest dalej.
@@ -110,7 +111,12 @@ W request zostawiamy / i wysyłamy dwa razy
 (kasuejmy /?cb=kasia123) 
  
  <br>
+ ad.2
+ <img width="1192" height="515" alt="image" src="https://github.com/user-attachments/assets/ec209564-4602-433a-9de5-226f535d0885" />
  
+<img width="908" height="389" alt="image" src="https://github.com/user-attachments/assets/d1afe6cf-0c16-4a7a-a77b-c79f2c6e7602" />
+
+<br><br>
  ad3.<br>
  <img width="1003" height="625" alt="image" src="https://github.com/user-attachments/assets/92dc8e00-ad0f-4c37-9dbc-beefc3cf928e" />
 <br><br>
@@ -236,8 +242,10 @@ Lab: Targeted web cache poisoning using an unknown header
 
 1. GET /cb=1
 resp: miss
-param miner . guess header
+param miner > guess header
 x-host:
 
-<br>
+response !!! VARY:USER AGENT
+
+<img width="1197" height="533" alt="image" src="https://github.com/user-attachments/assets/0d0758af-4be4-459c-ac20-771c4afec208" />
 
