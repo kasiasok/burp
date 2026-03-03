@@ -302,6 +302,9 @@ GET change to /resources path
 You need to poison the cache with a response that executes alert(document.cookie) in the visitor's browser. 
 Target users: Należy jednak upewnić się, że odpowiedź zostanie wysłana do konkretnej grupy użytkowników, do której należy dana ofiara.
 
+Vary to nagłówek odpowiedzi HTTP, który mówi cache:
+„Ta odpowiedź zależy od konkretnego nagłówka z requestu — jeśli on się zmieni, stwórz nowe cache.”
+
 1. GET /cb=1
 resp: miss
 param miner > guess header
