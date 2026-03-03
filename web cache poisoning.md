@@ -325,11 +325,27 @@ Serwer w odpowiedzi HTML wskazuje na złośliwy host, a przeglądarka ten plik p
 
 <img width="1246" height="526" alt="image" src="https://github.com/user-attachments/assets/86528f0d-9c80-49e9-acb3-970e072552a8" />
 
+<br><br>
+
 <img width="1487" height="748" alt="image" src="https://github.com/user-attachments/assets/d7be2c91-0389-401c-8f74-9fb9f88b6037" />
 
+<br><br>
 
+Veryfing victim browser 
 
 <br><br>
+
+<img width="1015" height="623" alt="image" src="https://github.com/user-attachments/assets/d8fa6a9e-4dcc-4f3f-b5a0-88c2604536a4" />
+
+<br><br>
+
+<img width="1145" height="584" alt="image" src="https://github.com/user-attachments/assets/1b8111a9-e915-4b09-834f-f007ea0247c3" />
+
+<br><br>
+
+<img width="1180" height="538" alt="image" src="https://github.com/user-attachments/assets/d8d46640-01eb-408e-bd7b-37dd8b75f271" />
+
+
 
 
 
