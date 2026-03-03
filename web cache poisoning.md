@@ -1,8 +1,14 @@
+first test:
+miss - hit (cachowanie działa)
+
+<hr>
+
 param miner:
 nowe cache buster in cachekey (GET /?cb=1)
 cache: miss
  
  <hr>
+ 
  Żądania GET
  <br>
 Tak, żądania GET są zwykle cache’owane.
@@ -347,5 +353,34 @@ Veryfing victim browser
 
 
 
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Web cache poisoning via an unkeyed query string</h2>
 
+A user regularly visits this site's home page using Chrome. 
+
+Query string to część adresu URL po znaku ?, która przekazuje dodatkowe dane do serwera.
+Przykład: https://example.com/search?q=buty&color=black
+
+<img width="1192" height="570" alt="image" src="https://github.com/user-attachments/assets/914bcc19-894f-4b76-ab3c-f0f9f5a8284c" />
+
+
+<br><br>
+
+nie cachuje się query string, miss pojawia się dopiero przy age: 35 (czyli po upływie max age)
+
+<br><br>
+
+<img width="963" height="241" alt="image" src="https://github.com/user-attachments/assets/8e8fbf36-bb3f-4aaa-a390-d57ecf95688e" />
+
+<br><br>
+
+<img width="1186" height="469" alt="image" src="https://github.com/user-attachments/assets/ec9fb205-9f80-41d5-88c9-dcf32d0e49de" />
+
+<br><br>
+
+/?cb=T'/><script>alert(1)</script>
+
+<img width="1186" height="469" alt="image" src="https://github.com/user-attachments/assets/a3666736-903a-4692-adec-c5b80c8ea12f" />
 
