@@ -266,8 +266,9 @@ GET change to /resources path
 
 <img width="1544" height="659" alt="image" src="https://github.com/user-attachments/assets/cf787832-c286-4fcf-9ab6-76f466a8dbe3" />
 
-
-
+<br><br>
+<hr>
+<br><br>
 <h2>Lab: Targeted web cache poisoning using an unknown header</h2>h2>
 
 1. GET /cb=1
