@@ -299,6 +299,9 @@ GET change to /resources path
 <br><br>
 <h2>Lab: Targeted web cache poisoning using an unknown header</h2>
 
+You need to poison the cache with a response that executes alert(document.cookie) in the visitor's browser. 
+
+
 1. GET /cb=1
 resp: miss
 param miner > guess header
