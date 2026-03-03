@@ -121,14 +121,19 @@ W request zostawiamy / i wysyłamy dwa razy
 
 <br><br>
  ad3.<br>
+
  <img width="1003" height="625" alt="image" src="https://github.com/user-attachments/assets/92dc8e00-ad0f-4c37-9dbc-beefc3cf928e" />
 <br><br>
 ad4.<br>
+
 <img width="1197" height="642" alt="image" src="https://github.com/user-attachments/assets/844f7bf4-b491-479c-94a2-410c23aea46b" />
+<br><br>
 
 <img width="841" height="606" alt="image" src="https://github.com/user-attachments/assets/b8412e31-bd8d-422e-916b-de9013784ff6" />
 
+<br><br>
 <img width="1470" height="647" alt="image" src="https://github.com/user-attachments/assets/bc0635af-a6e6-4fbe-bd1a-3d62a9b869e5" />
+<br><br>
 
 <img width="1487" height="744" alt="image" src="https://github.com/user-attachments/assets/260d9a15-b91e-47c4-8c26-fd6e34009a61" />
 
@@ -197,11 +202,14 @@ fehost
 
 <img width="1128" height="552" alt="image" src="https://github.com/user-attachments/assets/3bf7006e-b706-4bb9-8c83-a7f30a53b3a0" />
 
+<br><br>
+
 <img width="1204" height="522" alt="image" src="https://github.com/user-attachments/assets/8e9f2cb0-2f5e-4182-9910-a49e878a9402" />
 
 
 
 (musi być hit w odpowiedzi, żeby się zapisało w cache):
+
 
 <img width="1235" height="537" alt="image" src="https://github.com/user-attachments/assets/1fcd3e39-90a7-4a2b-bd1b-93f7b424b2c9" />
 
@@ -246,30 +254,50 @@ GET change to /resources path
 <hr>
 <img width="1201" height="484" alt="image" src="https://github.com/user-attachments/assets/93669f29-caed-4193-868a-fd56bd9295ea" />
 
+<br><br>
+
 <img width="1196" height="341" alt="image" src="https://github.com/user-attachments/assets/9e45d7bb-906f-4d90-bbf7-1e3bb6e2b54f" />
+
+<br><br>
 
 <img width="989" height="667" alt="image" src="https://github.com/user-attachments/assets/5665f3d9-7f5c-483c-882b-9d2e6f1c3540" />
 
+<br><br>
+
 <img width="1166" height="605" alt="image" src="https://github.com/user-attachments/assets/33589442-b29a-4c07-be24-e3a8c3eaa86c" />
+
+<br><br>
 
 <img width="1118" height="599" alt="image" src="https://github.com/user-attachments/assets/d92d2aa7-3c76-4b0f-b454-7dbc11ad35fc" />
 
+<br><br>
+
 <img width="1112" height="547" alt="image" src="https://github.com/user-attachments/assets/d2bc9d60-aa35-4c17-a71b-4a83f7091bc4" />
+
+<br><br>
 
 <img width="986" height="518" alt="image" src="https://github.com/user-attachments/assets/2a005ad4-65e7-46c7-b9f1-5e93d142b414" />
 
+<br><br>
+
 <img width="1155" height="364" alt="image" src="https://github.com/user-attachments/assets/376b2b2e-567e-4119-a7b4-ed1e81f07ca8" />
+
+<br><br>
 
 <img width="1118" height="383" alt="image" src="https://github.com/user-attachments/assets/29e75538-0d17-4746-aafa-bf1e7460d1d7" />
 
+<br><br>
+
 <img width="1137" height="702" alt="image" src="https://github.com/user-attachments/assets/df87cc51-24e8-44d5-bed0-241bd7493179" />
+
+<br><br>
 
 <img width="1544" height="659" alt="image" src="https://github.com/user-attachments/assets/cf787832-c286-4fcf-9ab6-76f466a8dbe3" />
 
 <br><br>
 <hr>
 <br><br>
-<h2>Lab: Targeted web cache poisoning using an unknown header</h2>h2>
+<h2>Lab: Targeted web cache poisoning using an unknown header</h2>
 
 1. GET /cb=1
 resp: miss
