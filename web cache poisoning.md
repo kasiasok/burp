@@ -445,3 +445,14 @@ after param miner
 solved
 
 <img width="1110" height="457" alt="image" src="https://github.com/user-attachments/assets/234ef890-91b3-42de-9a29-9b690d3351c9" />
+
+
+*** MY WALKTHROUGH ***
+
+<img width="1188" height="443" alt="image" src="https://github.com/user-attachments/assets/442f5ab5-fb73-4c25-8d3b-5427b9bcce85" />
+
+not work:
+<img width="1113" height="522" alt="image" src="https://github.com/user-attachments/assets/77cea944-177a-435b-bafb-09bf98d7f2c1" />
+
+
+
