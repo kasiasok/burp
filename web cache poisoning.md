@@ -438,3 +438,10 @@ cache key
 
 <img width="1164" height="597" alt="image" src="https://github.com/user-attachments/assets/cf8357ce-56bc-49d9-a0cd-58a139d35232" />
 
+after param miner
+
+<img width="1029" height="464" alt="image" src="https://github.com/user-attachments/assets/10193cef-943b-4249-bc5e-51d4b4408d25" />
+
+solved
+
+<img width="1110" height="457" alt="image" src="https://github.com/user-attachments/assets/234ef890-91b3-42de-9a29-9b690d3351c9" />
