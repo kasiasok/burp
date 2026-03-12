@@ -158,17 +158,31 @@ Make a note of this password.
 <h2>Lab: 2FA Broken Logic</h2>
 
 1. loguję się prawilnie z 2FA na moje konto wiener:peter
-2. w repeater /login2 wiener zamien na carlos (!!!kod teraz jest generowany dla carlosa)
+2. w repeater znalez wlasciwy (bez 2fa w body) /login2 wiener zamien na carlos (!!!kod teraz jest generowany dla carlosa)
 3. log out w przeglądarce
-4. ponownie w przegladarce zaloguj sie na peter:wiener
+4. ponownie w przegladarce zaloguj sie na wiener:peter
 5. wpisz invalid 2fa token
 6. burp: z http history /login2 > intruder > wiener na carlos > payloadtype: bruteforce (dzięki brute force dowiemy się jaki kod zostal wygenerowany dla carlos)
 
+<img width="1188" height="472" alt="image" src="https://github.com/user-attachments/assets/72171c6f-e9fd-4d98-b03e-3940487d1bfc" />
+
 <img width="1129" height="533" alt="image" src="https://github.com/user-attachments/assets/e39a5a93-85ce-4630-a4f0-9c645726c612" />
+<img width="1129" height="533" alt="image" src="https://github.com/user-attachments/assets/6d2fc9ae-11d9-44f4-8e1e-b9b129c7659c" />
+
+<img width="1150" height="210" alt="image" src="https://github.com/user-attachments/assets/37cf2e62-60cb-4b2a-a5ee-2135cf98889b" />
+
 
 Load the 302 response in the browser.
 
 <br><br>
 <hr>
 <br><br>
-<h2>Lab: 2FA Broken Logic</h2>
+<h2>Lab: Brute Forcing a Stay Logged In Cookie</h2>
+
+1. loguje sie na wiener:peter checkbox on: stay logged in
+2. repeater > /my-account?id=wiener staylogged cookie jest w base64 (md5 ma ten sam hash co kodowanie base64?)
+3. log out.
+4. intruder GET /my-account?id=carlos > paste password list r > add rules > A.hash md5 > B. add prefix carlosr: > C.base64 encode > D. Grep Match "update email" (wiemy bo pierwszy BF poszedł na peter wiener)
+
+<img width="1043" height="341" alt="image" src="https://github.com/user-attachments/assets/d4d2a3b9-bc2c-4adf-a731-ac707f36a3b7" />
+
