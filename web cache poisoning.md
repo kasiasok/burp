@@ -519,27 +519,31 @@ Browser URL encoding:
 %3cscript%3e
 
 
-In the scan we choose normalize path bo nie mamy w GET żadnego query i parameter.
+In the scan we choose normalize path bo nie mamy w GET żadnego query i parameter. <br>
 
 <img width="876" height="718" alt="image" src="https://github.com/user-attachments/assets/89b7d7d2-7acf-4efa-b882-1d0c411789d2" />
 
 Wybieram request gdzie odpowiedz jest 404
+
+<br> 
+
+<img width="673" height="522" alt="image" src="https://github.com/user-attachments/assets/d0acb398-2b6f-4465-b4a2-b955a3629096" /> <br> 
  
 
-<img width="673" height="522" alt="image" src="https://github.com/user-attachments/assets/d0acb398-2b6f-4465-b4a2-b955a3629096" />
- 
-
-<img width="939" height="439" alt="image" src="https://github.com/user-attachments/assets/c9486694-12d3-4763-9d85-ee09d341e764" />
+<img width="939" height="439" alt="image" src="https://github.com/user-attachments/assets/c9486694-12d3-4763-9d85-ee09d341e764" /> <br> 
  
 
 Payload > cache miss-hit> ppm > copy url > deliver to the victim
 
- 
+<br>  
 
 Payload GET /random</p><script>alert(1)</script><p>foo
 
+<br> 
+
 
 Zamienia się na URL encoded po odświeżeniu strony w przeglądarce chyba czasem, albo randomowo. Ale nie potrzeba url encoded odpowiedzi, żeby zaliczyć.
+<br> 
 
 
  <img width="1018" height="586" alt="image" src="https://github.com/user-attachments/assets/7bebbcd2-afbc-41d1-80b0-af2c7484accd" />
