@@ -217,7 +217,10 @@ HttpOnly
 Wtedy: document.cookie nie zwróci cookie sesji
 
 2. exploit server: obserwujemy access log
+3. burp decode: base64 i haslo md5 w crackstation
+4. logujemy sie > nastepnie w http history szukamy /my-account i w response endpointu do usuniecia carlosa > repeater /my-account/delete > request in browser ORIGINAL session
 
 
 <img width="736" height="566" alt="image" src="https://github.com/user-attachments/assets/224da8b7-0887-4b66-a9e0-71f0d97bf8ec" />
 
+<img width="1195" height="515" alt="image" src="https://github.com/user-attachments/assets/e63ed5bc-9bad-480e-991b-25daf60c8142" />
