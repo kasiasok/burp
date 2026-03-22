@@ -256,3 +256,6 @@ username=carlos&current-password=BRUTEFORCE&new-password-1=A&new-password-2=B
 grep match New passwords do not match -> solution w lab
 
 Grep extract Current password is incorrect - -> yt solutin
+
+<img width="1310" height="716" alt="image" src="https://github.com/user-attachments/assets/6f8a62dd-8f75-4cfe-9272-b4238b24f55b" />
+
