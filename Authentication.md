@@ -224,3 +224,35 @@ Wtedy: document.cookie nie zwróci cookie sesji
 <img width="736" height="566" alt="image" src="https://github.com/user-attachments/assets/224da8b7-0887-4b66-a9e0-71f0d97bf8ec" />
 
 <img width="1195" height="515" alt="image" src="https://github.com/user-attachments/assets/e63ed5bc-9bad-480e-991b-25daf60c8142" />
+
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Password reset poisoning via middleware</h2>
+
+0. Zalogować się i sprawdzić funckjonalnosć forgot password.
+1. Przed logowaniem wybieram opcje forgot password i szukam mój email w exploit server > submit > na moim mailu mam endpoinst mniej więcej /forgot-pass > klikam link > jako nowe hasło podaje se to samo co stare: peter
+2. Wyciągam w burp endpoint /forgot-pass mające w body username
+3. Z solution wiem, że jest akceptowalny X-Forwarded-Host (ale nie wychodzi mi to w param miner>guess headers, why).
+4. W X-Forwarded-Host: host czyli mój exploit serwer bez protokolu, to wskazuje backendowi, gdzie ma wyslać odpowiedź (X-Forwarded-Host jest stosowany przed np. load balancery) > username carlos
+5. Please check your email for a reset password link > exploit server > access log > mam token zmiany hasla carlosa
+6. BEZ KLIKANIA, Ze skrzynki mailowej wyciągam url do forgot password i zmieniam token na carloskowy. I dopiero enter.
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Password brute-force via password change</h2>
+
+0. Przejść całą procesurę jako wiener peter
+(Jeśli wpiszesz zły Current password i takei same nowe hasla to nastapi wylogowanie i blokada na minute, a gdy wpiszesz dobry Current password i różne nowe hasła pojawi się „New passwords do not match”, co pozwala zgadywać poprawne hasło. Jeśli wpisze wszystko zle to „Current password is incorrect”)
+
+1. W burp znaleźć endpoint POST /my-account/change-password
+Brute force haseł na usera carlos, robiąc new password i repeat new password z różnymi wartościami
+
+username=carlos&current-password=BRUTEFORCE&new-password-1=A&new-password-2=B
++
+grep match New passwords do not match -> solution w lab
+
+Grep extract Current password is incorrect - -> yt solutin
