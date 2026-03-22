@@ -27,3 +27,5 @@
 <hr>
 <br><br>
 <h2>Lab: Exploiting server-side parameter pollution in a query string</h2>
+
+<img width="1062" height="666" alt="image" src="https://github.com/user-attachments/assets/60a26089-2ddf-4acb-8d67-8c930d750b25" />
