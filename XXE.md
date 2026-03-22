@@ -95,8 +95,6 @@ payload:
 <br><br>
 <h2>Lab: Blind XXE with out-of-band interaction</h2>
 
-<img width="673" height="375" alt="image" src="https://github.com/user-attachments/assets/7225322e-ad94-4755-880f-c7b7af9dbef3" />
-
 payload:
 (ppm>insert collab)
 
