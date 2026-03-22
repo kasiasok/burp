@@ -144,3 +144,21 @@ payload:
 <img width="1202" height="658" alt="image" src="https://github.com/user-attachments/assets/75506037-121c-460e-8965-71327110cfb5" />
 
 
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</h2>
+
+1. zmuszamy server przez xml, zeby zaczytal zasob z exploitserver.
+2. server zaczytuje stamtad zlosliwy doctype xml ze wskazanym adresem zwrotnym w collaborator
+3. server po sparsowaniu xml w exploit server wysyla zasob na collaborator
+
+
+
+<img width="1195" height="608" alt="image" src="https://github.com/user-attachments/assets/f4446ade-0192-4496-b6a4-636c7ffc784c" />
+
+<img width="1389" height="683" alt="image" src="https://github.com/user-attachments/assets/3c45dd23-3d66-4e02-bc8b-d355c4115473" />
+<img width="1344" height="724" alt="image" src="https://github.com/user-attachments/assets/35706f62-5a87-44de-bccb-39b4a4a19dff" />
+
+
