@@ -253,7 +253,7 @@ Brute force haseł na usera carlos, robiąc new password i repeat new password z
 
 username=carlos&current-password=BRUTEFORCE&new-password-1=A&new-password-2=B
 
-+
+plus
 
 grep match New passwords do not match -> solution w lab
 
