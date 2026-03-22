@@ -252,7 +252,9 @@ Wtedy: document.cookie nie zwróci cookie sesji
 Brute force haseł na usera carlos, robiąc new password i repeat new password z różnymi wartościami
 
 username=carlos&current-password=BRUTEFORCE&new-password-1=A&new-password-2=B
+
 +
+
 grep match New passwords do not match -> solution w lab
 
 Grep extract Current password is incorrect - -> yt solutin
