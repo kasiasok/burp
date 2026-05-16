@@ -1,0 +1,32 @@
+czym sie roznia naglowksi:
+
+
+
+host. x horwardred host, origin i referer
+
+
+
+HOST - DOCELOWA DOMENA
+Mówi serwerowi do jakiej domeny kierujesz request
+Używany gdy jeden serwer obsługuje wiele domen (virtual hosting) np. cyberfolks 
+HOST HEADER INJ → reset hasła, cache poisoning
+
+X-FORWARDED-HOST - ORYGINALNY HOST
+Używany przez proxy/load balancery
+Mówi serwerowi jaki był oryginalny Host zanim request przeszedł przez proxy
+Często źródło podatności – serwery czasem ufają mu bardziej niż powinny (Host Header Injection)
+HOST HEADER INJ → reset hasła, cache poisoning + bypass proxy/WAF
+
+ORIGIN - tylko domena - SKĄD POCHODZI REQUEST
+Ataki CORS (CORS, POST formularze)
+Zawiera tylko schemat + domenę (bez ścieżki!)
+Przeglądarka wysyła go automatycznie – JS nie może go zmienić
+CORS Misconfiguration → kradzież danych
+
+REFERER - pełny URL z parametrami - Pełny URL poprzedniej strony
+Mówi skąd przyszedł użytkownik (pełny URL poprzedniej strony)
+Zawiera pełną ścieżkę ze ścieżką i parametrami
+Może zawierać wrażliwe dane w URL (np. tokeny, hasła)
+Można go wyłączyć przez <meta name="referrer" content="no-referrer">
+CSRF BYPASS → information leakage
+
