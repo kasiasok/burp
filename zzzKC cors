@@ -23,7 +23,7 @@ Ofiara nic nie widzi – strona wygląda normalnie
 
 ____
 
-Lab: CORS vulnerability with trusted insecure protocols
+Lab: CORS vulnerability with trusted insecure protocols   (CORS+http = niebezpieczne combo)
 
 WERYFIKACJA
 1. intercept to login
@@ -47,5 +47,22 @@ PYALOAD on the exploit server
 6. Click View exploit. Observe that the exploit works - you have landed on the log page and your API key is in the URL.
 7. Go back to the exploit server and click Deliver exploit to victim.
 8. Click Access log, retrieve and submit the victim's API key to complete the lab. 
+
+
+
+wyjasnienie:
+XSS na zaufanej subdomeni, żeby ukraść dane przez cors bo serwer ufał wszytskim subdomenom bez względu na protokuł.
+
+Ofiara klika exploit
+       ↓
+Redirect na stock.lab-id (HTTP)
+       ↓
+XSS wykonuje fetch do /accountDetails
+       ↓
+Serwer widzi: Origin: http://stock.lab-id ✅ (zaufany!)
+       ↓
+Zwraca API key z sesją ofiary
+       ↓
+API key leci na Twój exploit server
 
 
