@@ -1,0 +1,97 @@
+
+Sokołowska Katarzyna1
+pon., 4 maj, 14:48 (12 dni temu)
+do mnie
+
+Lab: Excessive trust in client-side controls
+
+ 
+
+buy a "Lightweight l33t leather jacket"
+
+ 
+
+login  > dodaj kurtałe do koszyka
+https history: > /cartchange > price 1300 > refresh page
+ 
+
+ 
+
+Lab: High-level logic vulnerability
+
+ 
+
+Przykładowo,:
+
+quantiti
+
+Mood encancer (albo coś za ok. 38dolców)  -34
+
+Jacker 1
+
+ 
+
+Lab: Inconsistent security controls
+
+Email – empty
+
+Sitemap: /admin
+
+ 
+
+"Target" > "Site map" tab in Burp. Right-click on the lab domain and select "Engagement tools" > "Discover content" to open the content discovery tool.
+Admin /401: Admin interface only available if logged in as a DontWannaCry user
+REGISTRATION: Mail x@your-email-id.web-security-academy.net i przychodzi mail na skrzynke potwierdzający zalozenie konta
+Loguje się na to konto i zmieniam maila na k@ DontWannaCry.com
+ 
+
+Lab: Flawed enforcement of business rules
+
+Log in and notice that there is a coupon code, NEWCUST5.
+At the bottom of the page, sign up to the newsletter. You receive another coupon code, SIGNUP30.
+ 
+
+Try applying the codes more than once. Notice that if you enter the same code twice in a row, it is rejected because the coupon has already been applied. However, if you alternate between the two codes, you can bypass this control.
+
+ 
+
+
+
+ 
+
+ 
+
+ 
+
+Lab: Low-level logic flaw
+
+ 
+
+Co znaczy „null” w tym kontekście?
+
+W zależności od miejsca testu może to oznaczać:
+
+pustą wartość (param=),
+brak parametru,
+null / None (logicznie, po stronie backendu),
+pusty nagłówek,
+brak body / brak jednego z expected fields.
+Nie chodzi o string "null", tylko o brak sensownej wartości.
+
+ 
+
+Bardzo często:
+
+null → omija if‑y
+null → trafia w nieobsłużony case
+ 
+
+ 
+
+Login
+Add kurtka to cart
+/cart
+Send to intruder: payload position: quantity>null payloads (payload options: continue indefitenely)
+Send to intruder: payload position: quantity>null payloads (payload options: continue indefitenely) > payload configuration 323
+Click Resource pool to open the Resource pool tab. Add the attack to a resource pool with the Maximum concurrent requests set to 1. Start the attack.
+ 
