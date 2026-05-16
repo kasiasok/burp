@@ -1,3 +1,14 @@
+Karol Cz.:
+Strona ładuje pliki javscript pobierajac je z pelnego url z hostem, 
+a ty zatruwasz hosta naglowkiem host, x-forwarded-host albo cokolwiek innego
+i strona zaczyna po prostu ładować wszystko z twojego hosta
+
+❤️
+Jak zacacheuje (masz cache hit) to globalnie to sie stanie
+I kazdy dostanie kontent z twojego serwera
+
+<br>
+
 first test:
 miss - hit (cachowanie działa)
 (poprawnie znaleziony cache key)
