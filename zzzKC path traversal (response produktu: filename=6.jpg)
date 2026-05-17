@@ -1,0 +1,7 @@
+diagnozuje path traversal po odpowiedzi produktu 
+
+/image?filename=6.jpg
+
+robie intruder z /image?filename=$$
+
+komende payload z 200 zamieniam na /etc/passwd
