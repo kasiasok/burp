@@ -1,0 +1,14 @@
+Lab: Blind OS command injection with out-of-band data exfiltration
+
+ormalny command injection:
+Wysyłasz → whoami → widzisz "carlos" w odpowiedzi ✅
+
+Blind command injection:
+Wysyłasz → whoami → odpowiedź jest taka sama, nic nie widzisz ❌
+
+Out-of-band exfiltration:
+Wysyłasz → whoami → wynik leci na Twój Burp Collaborator ✅
+
+
+
+
