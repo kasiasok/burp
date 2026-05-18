@@ -1,10 +1,13 @@
 Lab: Forced OAuth profile linking
 
 1. Zaloguj sie w klasyczny sposob bez social mediów
-2. Zacznij linkowanie konta OAuth    wienerpeter:hotdog
+2. Zacznij linkowanie konta OAuth    peter.wiener:hotdog
 3. Przechwyć request z kodem OAuth (code=...) GET /oauth-linking?code=6EIugu6
 4. Zatrzymaj przed finalizacją
 5. Zbuduj exploit który zmusza ofiarę do użycia Twojego kodu
 6. Ofiara linkuje Twoje konto OAuth do swojego konta
 7. Logujesz się przez OAuth jako ofiara
 
+
+payload
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/oauth-linking?code=STOLEN-CODE"></iframe>
