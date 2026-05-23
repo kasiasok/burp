@@ -3,9 +3,9 @@ Lab: Exploiting HTTP request smuggling to capture other users' requests - a te r
 
 https://www.youtube.com/watch?v=v0jWcPEjNXI OK !!
 
-
+```
 <img width="677" height="302" alt="image" src="https://github.com/user-attachments/assets/ed6d6bce-b485-41f9-83a8-9db268f0eb2b" />
-
+```
 
 !!!!!!!!Chodzi o to żeby request ofiary wpadł do comment= 
 
