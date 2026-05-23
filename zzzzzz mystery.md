@@ -1,4 +1,4 @@
-JWT
+<img width="1577" height="913" alt="image" src="https://github.com/user-attachments/assets/8b338d22-b5e5-4cec-92eb-014f8453abe4" />JWT
 
 Tak! Nowy klucz RSA to Twoja własna para kluczy (prywatny + publiczny).
 W ataku Embedded JWK:
@@ -17,5 +17,26 @@ działa: wygenerowanie nowego podpisu RSA i zmiana na sub: administrator > przec
 <img width="1694" height="881" alt="image" src="https://github.com/user-attachments/assets/ad9a12bf-cde9-4300-9a30-c824e0736a4b" />
 
 <img width="1041" height="852" alt="image" src="https://github.com/user-attachments/assets/edc59030-0b08-456e-b667-f81640efdec6" />
+
+
+
+
+
+
+
+Lab: JWT authentication bypass via kid header path traversal
+może wygasnąc sesja dla tokena EXP > zalogować się na wienr podobnie. żeby rozwiazać GET /admin
+
+kid 
+../../../../../../../dev/null
+
+<img width="1577" height="913" alt="image" src="https://github.com/user-attachments/assets/a436452c-8214-4053-a2c1-a9f508887522" />
+
+
+<img width="1177" height="932" alt="image" src="https://github.com/user-attachments/assets/2c605d39-dd72-42fb-90cc-bce3f93b872e" />
+
+
+
+
 
 
