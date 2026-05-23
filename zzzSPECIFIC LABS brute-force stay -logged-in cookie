@@ -1,0 +1,17 @@
+Lab: Brute-forcing a stay-logged-in cookie
+
+51dc30ddc473d43a6011e9ebba6ca770 to MD5 hasła "peter":
+
+puyszczam intruder z hasłami, id=carlos lub POST /my-account/change-email
+cookie: session=KASUJEMY WARTOSC WIENERA, 
+Payload processing 
+    Hash: MD5
+    (Add prefix: wiener:)
+    Encode: Base64-encode
+
+
+loguje sie na carlosa
+
+
+
+
