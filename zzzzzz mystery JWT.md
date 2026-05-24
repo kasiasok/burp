@@ -38,5 +38,12 @@ kid
 
 
 
+************************
+<img width="889" height="637" alt="image" src="https://github.com/user-attachments/assets/5e1d22cd-9611-4156-ada4-fd5b1372e3e7" />
+
+<img width="839" height="796" alt="image" src="https://github.com/user-attachments/assets/10f8da3c-e4ab-40e7-8284-
+674220391a17" />
+
+<img width="818" height="827" alt="image" src="https://github.com/user-attachments/assets/6cd16c41-fb8a-4c2f-9720-bd64c17c2faf" />
 
 
