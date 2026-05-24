@@ -4,6 +4,7 @@ ctr;+U czy jest skrypt na glownej
 /admin   - byc może JWT
 /robots.txt
 wszystkie funkcjonalnosci do claude
-ciasteczka do claude
+ciasteczka do claude > JWT? serialized obejct? 
 jeśli nic nie ma -> Host header (?) > nie wychodzi w skanie param miner, a /admin ma 404, ale nie znaczy że nie ma endpointu
 mfa > (w pierwszym requuescie login2) veryfi=carlos >  (w pierwszym requuescie login2) veryfi=carlos mfa=xxxx intruder 0000-9999, step1, min. digits4
+cookie > serialized object?
