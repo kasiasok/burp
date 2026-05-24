@@ -37,8 +37,21 @@ kid
 
 
 
-
+<hr> <hr> <hr>
 ************************
+<img width="782" height="640" alt="image" src="https://github.com/user-attachments/assets/7e34fe7d-8e32-4273-8fde-537dc23553e2" />
+
+<img width="739" height="411" alt="image" src="https://github.com/user-attachments/assets/19c0c05b-6d2f-4f4d-89c9-0e8e16b38b96" />
+
+<img width="759" height="626" alt="image" src="https://github.com/user-attachments/assets/8a1ec4aa-1bcc-4306-ac56-f398062372af" />
+
+<img width="751" height="661" alt="image" src="https://github.com/user-attachments/assets/5255a62d-1df1-4ca9-bc7d-fbba72a49fba" />
+
+<img width="758" height="550" alt="image" src="https://github.com/user-attachments/assets/351ddf6d-b756-4f82-bf3f-ea9e1d9333e9" />
+
+
+
+
 <img width="889" height="637" alt="image" src="https://github.com/user-attachments/assets/5e1d22cd-9611-4156-ada4-fd5b1372e3e7" />
 
 <img width="837" height="799" alt="image" src="https://github.com/user-attachments/assets/7d7a5dc5-7926-469a-8228-2d4819463d16" />
