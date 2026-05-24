@@ -1,8 +1,8 @@
 skan na glownej
 skan na search term
 ctr;+U czy jest skrypt na glownej
-/admin
+/admin   - byc może JWT
 /robots.txt
 wszystkie funkcjonalnosci do claude
 ciasteczka do claude
-jeśli nic nie ma -> Host header (?) > nie wychodzi w skanie param miner
+jeśli nic nie ma -> Host header (?) > nie wychodzi w skanie param miner, a /admin ma 404, ale nie znaczy że nie ma endpointu
