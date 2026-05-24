@@ -1,0 +1,19 @@
+Lab: Performing CSRF exploits over GraphQL
+
+
+
+1.Open Burp's browser, access the lab and log in to your account.
+2.Enter a new email address, then click Update email.
+3.In Burp, go to Proxy > HTTP history and check the resulting request. Note that the email change is sent as a GraphQL mutation.
+
+
+
+Sprawdź czy GraphQL akceptuje Content-Type: application/x-www-form-urlencoded zamiast application/json — to klucz do CSRF:
+
+query=mutation+changeEmail($input:+ChangeEmailInput!)+{+changeEmail(input:+$input)+{+email+}+}&operationName=changeEmail&variables={"input":{"email":"attacker@evil.com"}}
+
+/api
+/graphql
+/graphql/v1
+
+
