@@ -1,7 +1,7 @@
 skan na glownej
 skan na search term
 ctr;+U czy jest skrypt na glownej
-/admin   - byc może JWT
+/admin   - Admin interface only available if logged in as an administrator  byc może JWT/serialized
 /robots.txt
 wszystkie funkcjonalnosci do claude
 ciasteczka do claude > JWT? serialized obejct? 
