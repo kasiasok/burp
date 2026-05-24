@@ -1,4 +1,4 @@
-<img width="1577" height="913" alt="image" src="https://github.com/user-attachments/assets/8b338d22-b5e5-4cec-92eb-014f8453abe4" />JWT
+>JWT
 
 Tak! Nowy klucz RSA to Twoja własna para kluczy (prywatny + publiczny).
 W ataku Embedded JWK:
