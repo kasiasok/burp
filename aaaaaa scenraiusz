@@ -1,5 +1,5 @@
 skan na glownej
-skan na search term
+skan na search term /resources/js/searchResults.js
 ctr;+U czy jest skrypt na glownej
 /admin   - Admin interface only available if logged in as an administrator  byc może JWT/serialized
 /robots.txt
