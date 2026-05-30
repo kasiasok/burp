@@ -80,7 +80,7 @@ ____
 
 
 III etap
-deserializacja
+deserializacja > extension: java deserialisation scanner
  lab.actions.common.serializable.AdminPrefs. To podatność na deserialization attack!
 Kluczowe info z decode:
 
