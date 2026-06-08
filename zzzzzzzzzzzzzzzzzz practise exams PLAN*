@@ -8,7 +8,7 @@ CC wewnatrz sesji:
 /rename (na start nadaj nazwe sesji)*
 /resume (poprzednie sesje do wyboru)
 /continue (kontynuacja ostatniej sesji)
-
+claude --resume "nazwa sesji"
 
 
 stage 1:
