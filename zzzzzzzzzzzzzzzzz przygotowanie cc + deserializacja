@@ -1,7 +1,7 @@
-rO0AB... (base64 serializowanego obiektu Java) albo H4sI... (gzip+base64). Wtedy właśnie ysoserial wchodzi do gry.
 
-
-
+rO0ABJava serialized object, plain base64
+H4sIgzip skompresowany, potem base64
+%72%4f lub rO0AB%3d%3dURL-encoded base64 — najpierw URL-decode
 
 
 Kontekst: Java deserialization na BSCP.
