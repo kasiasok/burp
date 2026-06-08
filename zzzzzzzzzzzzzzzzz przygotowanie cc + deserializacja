@@ -1,0 +1,21 @@
+rO0AB... (base64 serializowanego obiektu Java) albo H4sI... (gzip+base64). Wtedy właśnie ysoserial wchodzi do gry.
+
+
+
+
+
+Kontekst: Java deserialization na BSCP.
+
+Podatny parametr: [nazwa cookie/parametru i jego aktualna wartość, np. session=rO0ABX...]
+
+Format: [base64 / gzip+base64 / URL-encoded]
+
+Collaborator: [twój adres]
+
+Co już wiem: [który gadget chain odpowiedział na DNS ping, np. CommonsCollections6]
+
+Cel: RCE - exfiltracja /home/carlos/secret przez wget POST do Collaboratora
+
+Narzędzie: ysoserial-all.jar dostępny lokalnie
+
+Powiedz mi dokładną komendę ysoserial i jak zmodyfikować payload do wysłania przez Burp Repeater.
