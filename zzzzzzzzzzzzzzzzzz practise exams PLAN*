@@ -3,6 +3,12 @@ DOWÓD
 ZAPISZ PROJECT W BURP
 The latest version of Google Chrome - please disable your pop-up blocker.
 konto prywatne + burp pro - przygotować project ze scope wczesniej
+CC wewnatrz sesji: 
+/usage (ile tokenów zurzyte, co 5h renew)
+/rename (na start nadaj nazwe sesji)*
+/resume (poprzednie sesje do wyboru)
+/continue (kontynuacja ostatniej sesji)
+
 
 
 stage 1:
