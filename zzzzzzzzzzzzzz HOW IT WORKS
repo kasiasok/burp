@@ -1,0 +1,15 @@
+What the exam involves:
+
+Stage 1: Access any user account.
+Stage 2: Become an admin
+
+Stage 3: As admin read the contents of /home/carlos/secret and "submit solution".
+
+users:
+"administrator"
+"carlos"
+ 
+SSRF:
+you can use it to read files by accessing an internal-only service, running on localhost on port 6566.
+
+Host header attacks are fair game, but the _lab and _lab_analytics cookies are part of the core exam functionality - please don't waste your time tampering with them.
