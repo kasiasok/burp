@@ -1,5 +1,21 @@
+KAMERA
+DOWÓD
+ZAPISZ PROJECT W BURP
+cc
+
+
 stage 1:
 Cel: zdobyć ciasteczka - info do notatnika:
 
 1. payload z DOM VADER
-2. kod z 
+2. kod z /resources/js/searchResults.js
+3. adres collaborator
+4. url zadania  
+
+Cel: delivery exploit
+payloady z testów próbnych:
+
+
+II
+
+
