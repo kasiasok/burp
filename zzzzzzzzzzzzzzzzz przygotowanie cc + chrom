@@ -1,0 +1,29 @@
+Jesteś pomocnikiem na egzaminie BSCP (PortSwigger).
+Cel: delivery XSS payload przez DOM vulnerability do Collaborator.
+Kontekst wstrzyknięcia: [tu wklej dokładnie fragment kodu JS gdzie ląduje input]
+Filtry: [co widzisz że jest blokowane]
+Błędy z konsoli: [wklej]
+Collaborator URL: [twój adres]
+Nie sugeruj narzędzi innych niż Burp + przeglądarka.
+Odpowiadaj: "następny payload do przetestowania" + wyjaśnienie dlaczego.
+
+
+
+
+1. Sources → plik JS lub HTML
+Otwórz Sources (F12 → Sources), znajdź plik który obsługuje pole wyszukiwania. Szukaj miejsca gdzie Twój input jest używany — np.:
+javascriptvar searchTerm = 'TWÓJ_INPUT';
+document.write(searchTerm);
+To Ci powie dokładnie: jesteś w stringu z apostrofem, cudzysłowem, czy bezpośrednio w HTML.
+2. Elements → zaznacz pole input, kliknij prawym → "Inspect"
+Potem wpisz coś unikalnego (np. AAAA) i w Elements użyj Ctrl+F żeby znaleźć gdzie AAAA się pojawia w drzewie DOM. To pokaże Ci kontekst HTML.
+3. Console → najprostszy test
+Wpisz w polu search:
+AAAA"BBBB'CCCC<DDDD
+Potem w Console sprawdź błędy — jeśli zobaczysz Uncaught SyntaxError to znaczy że jesteś w kontekście JS i któryś ze znaków wyrwał się ze stringa.
+4. Network → żądanie
+Zakładka Network → kliknij na żądanie search → Response. Zobaczysz surowy HTML zwrócony przez serwer — znajdź tam swój input i oceń w jakim kontekście siedzi.
+
+Co przekazać Claude Code:
+Skopiuj dokładny fragment kodu (10-20 linii wokół miejsca gdzie ląduje input) i wklej jako pierwszy komunikat. To jest najważniejsza rzecz — bez tego Claude Code zgaduje kontekst zamiast go wiedzieć.
+Chcesz teraz iść dalej z tym briefem?Sonnet 4.6 Low
