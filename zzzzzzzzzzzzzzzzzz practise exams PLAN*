@@ -2,7 +2,7 @@ https://portswigger.net/web-security/certification/exam-hints-and-guidance
 KAMERA
 DOWÓD
 ZAPISZ PROJECT W BURP
-The latest version of Google Chrome - please disable your pop-up blocker.
+The latest version of Google Chrome - please disable your pop-up blocker:  chrome://settings/content/popups
 konto prywatne + burp pro - przygotować project ze scope wczesniej
 CC wewnatrz sesji: 
 /usage (ile tokenów zurzyte, co 5h renew)
