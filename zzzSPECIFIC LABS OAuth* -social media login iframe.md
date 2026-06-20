@@ -17,14 +17,14 @@ payload
 <hr><hr>
 
 
-Lab: OAuth account hijacking via redirect_uri*
-Zaloguj się jako wiener i przejdź wszystkie kroki> odpal ostatni request OAuth /auth?client_id=... w Burp
-Na exploit serverze wklej iframe z redirect_uri wskazującym na exploit server
-Kliknij Store → Deliver exploit to victim
-W logach exploit servera znajdź ?code=... od ofiary
-Wyloguj się z wiener
-Wejdź na /oauth-callback?code=KOD_OFIARY
-Jesteś zalogowany jako admin/carlos
+Lab: OAuth account hijacking via redirect_uri*<br>
+Zaloguj się jako wiener i przejdź wszystkie kroki> odpal ostatni request OAuth /auth?client_id=... w Burp<br>
+Na exploit serverze wklej iframe z redirect_uri wskazującym na exploit server<br>
+Kliknij Store → Deliver exploit to victim<br>
+W logach exploit servera znajdź ?code=... od ofiary<br>
+Wyloguj się z wiener<br>
+Wejdź na /oauth-callback?code=KOD_OFIARY<br>
+Jesteś zalogowany jako admin/carlos<br>
 
 
 <br>
