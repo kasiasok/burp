@@ -40,7 +40,11 @@ payload
 <br>
 
 
+
+
 Log out, and navigate to the following URL, where you’ll be met with the Admin Panel:
+
+
 
 https://YOUR-LAB-ID.web-security-academy.net/oauth-callback?code=CODE
 
