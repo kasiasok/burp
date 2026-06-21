@@ -13,3 +13,11 @@ SSRF:
 you can use it to read files by accessing an internal-only service, running on localhost on port 6566.
 
 Host header attacks are fair game, but the _lab and _lab_analytics cookies are part of the core exam functionality - please don't waste your time tampering with them.
+
+
+
+
+
+https://portswigger.net/web-security/authentication/auth-lab-usernames
+
+https://portswigger.net/web-security/authentication/auth-lab-passwords
