@@ -263,7 +263,9 @@ I PODEJŚCIE, MASZYNKA B [Web Cache+?+?]
 Maszynka B stage1: Web cache poisoning dopiero na fukcji szukania znaleziony
 inne cechy: forgot passowrd, change email, skaner nic nie wykrywa, no hiddern params.
 
-1. przygotowuje exploit server z endpointem /resources/js/tracking.js
+1. przygotowuje exploit server z endpointem /resources/js/tracking.js body: alert(document.cookie)
+w re
+2. robie kaszowanie w repeaterze /?cb=1 żeby sprawdzić czy wykonuje się kod w przegladarce i uzywam cb żeby nie czekac 30 sekund na kolejna probe
 
 
 
