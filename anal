@@ -4,6 +4,7 @@ A1: Cel zdobycie carlosa
 "Host header authentication bypass" lub "Host header poisoning via password reset", ""Password Reset Poisoning via Host Header"
 Endpoint /new-password z username=carlos to żądanie wysłania linku resetującego — x-host ma skłonić appkę do zbudowania linku resetującego na Twojej domenie exploit-server.
 Kontekst: nie mam dostepu do konta wiener, nie jestem zalgowana i mam zdobyć cookies carlosa.
+https://github.com/DingyShark/BurpSuiteCertifiedPractitioner#http-host-header-attacks
 
 POST /log-in HTTP/2
 Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
@@ -154,8 +155,8 @@ Content-Length: 130
 
 
 intruder
-<img width="1306" height="576" alt="image" src="https://github.com/user-attachments/assets/6c6554fc-d37c-4092-9485-659a2683dc32" />
-<img width="1293" height="576" alt="image" src="https://github.com/user-attachments/assets/25a60684-25c5-4d0b-9ca7-9847620ce0aa" />
+https://github.com/user-attachments/assets/6c6554fc-d37c-4092-9485-659a2683dc32
+https://github.com/user-attachments/assets/25a60684-25c5-4d0b-9ca7-9847620ce0aa
 
 
 
@@ -188,6 +189,13 @@ Priority: u=1, i
 
 
 A3: Przeczytać /home/carlos/secret/
+https://github.com/DingyShark/BurpSuiteCertifiedPractitioner#6-admin-panel-rfi
+
+
+
+
+
+
 
 
 II
