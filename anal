@@ -252,7 +252,7 @@ GET /blogImage/shell.php
 https://github.com/user-attachments/assets/da5b67c8-aac6-44ca-8f20-fb0287aa69e8
 
 
-I PODEJŚCIE, MASZYNKA B [Web Cache+idlogged_cookie+2fa broken logic?? code]
+I PODEJŚCIE, MASZYNKA B [Web Cache+idlogged_cookie csrf+2fa broken logic?? code]
 
 
 Maszynka B stage1: Web cache poisoning dopiero na fukcji szukania znaleziony
@@ -280,7 +280,7 @@ poprawnego kodu, niezależnie od cookie.
 Właściwy test bypassu: użyj tego samego sfałszowanego cookie (isloggedin:true, username:carlos,
 oryginalny podpis) ale na innym endpoincie - takim co normalnie wymaga zalogowania - nie przetestowane?
 
-
+2FA broken logic??
 
 GET /my-account ?id=carlos HTTP/2
 Host : Oae6001c04191df583de5fla00f700b4.web-security-academy. net
