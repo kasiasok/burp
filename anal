@@ -1,6 +1,6 @@
-I
+I PODEJŚCIE, MASZYNKA A
 
-A1: Cel zdobycie carlosa
+Maszynka A stage1: Cel zdobycie carlosa
 "Host header authentication bypass" lub "Host header poisoning via password reset", ""Password Reset Poisoning via Host Header"
 Endpoint /new-password z username=carlos to żądanie wysłania linku resetującego — x-host ma skłonić appkę do zbudowania linku resetującego na Twojej domenie exploit-server.
 Kontekst: nie mam dostepu do konta wiener, nie jestem zalgowana i mam zdobyć cookies carlosa.
@@ -94,7 +94,7 @@ Priority: u=0, i
 csrf=Xi17dTlfIz26S9Qhynifcdi23CxuuGNT&username=carlos
 
 
-A2: eskalacja na admina
+Maszynka A stage2: eskalacja na admina
 zmiana roleid na zasobie admina
 
 GET /myaccountdetails?id=carlos HTTP/2
@@ -188,7 +188,7 @@ Priority: u=1, i
 >> 200
 
 
-A3: Przeczytać /home/carlos/secret/
+Maszynka A stage3: Przeczytać /home/carlos/secret/
 https://github.com/DingyShark/BurpSuiteCertifiedPractitioner#6-admin-panel-rfi
 
 Admin Panel RFI
@@ -257,13 +257,11 @@ GET /blogImage/shell.php
 https://github.com/user-attachments/assets/da5b67c8-aac6-44ca-8f20-fb0287aa69e8
 
 
+I PODEJŚCIE, MASZYNKA B
 
 
-
-
-II
-
-A: forgot passowrd, change email, skaner nic nie wykrywa, no hiddern params.
+C: Web cache poisoning dopiero na fukcji szukania znaleziony
+inne cechy: forgot passowrd, change email, skaner nic nie wykrywa, no hiddern params.
 
 POST /my-account-details HTTP/2
 Host: 0a0b0036034d6688801803a000ed009d.web-security-academy.net
@@ -295,6 +293,9 @@ HTTP/2 302 Found
 Location: /hello
 X-Frame-Options: SAMEORIGIN
 Content-Length: 0
+
+
+D: to samo co w
 
 
   
