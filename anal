@@ -1,4 +1,4 @@
-I PODEJŚCIE, MASZYNKA A
+I PODEJŚCIE, MASZYNKA A [Host Header+RoleId na zasobie admina+RFI]
 
 Maszynka A stage1: Cel zdobycie carlosa
 "Host header authentication bypass" lub "Host header poisoning via password reset", ""Password Reset Poisoning via Host Header"
@@ -260,8 +260,19 @@ https://github.com/user-attachments/assets/da5b67c8-aac6-44ca-8f20-fb0287aa69e8
 I PODEJŚCIE, MASZYNKA B
 
 
-C: Web cache poisoning dopiero na fukcji szukania znaleziony
+Maszynka B stage1: Web cache poisoning dopiero na fukcji szukania znaleziony
 inne cechy: forgot passowrd, change email, skaner nic nie wykrywa, no hiddern params.
+
+1. przygotowuje exploit server z endpointem /resources/js/tracking.js
+
+
+
+
+
+
+II PODEJŚCIE csrf statyczny dla wszystkich userow
+
+
 
 POST /my-account-details HTTP/2
 Host: 0a0b0036034d6688801803a000ed009d.web-security-academy.net
@@ -289,13 +300,11 @@ csrf=BHLO66SdGxYt4D6h4d3z9cyn8Zfn31Xb&username=carlos
 
 
 
+przekierowanie do logowania
 HTTP/2 302 Found
 Location: /hello
 X-Frame-Options: SAMEORIGIN
 Content-Length: 0
-
-
-D: to samo co w
 
 
   
